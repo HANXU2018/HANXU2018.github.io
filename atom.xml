@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huihe524.github.io</id>
     <title>慧河工作室</title>
-    <updated>2020-03-31T13:12:16.321Z</updated>
+    <updated>2020-03-31T13:17:08.983Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huihe524.github.io"/>
     <link rel="self" href="https://huihe524.github.io/atom.xml"/>
@@ -50,8 +50,8 @@
 <h1 id="练习题目范围">📝练习题目范围</h1>
 <p>目前拟定题库选自</p>
 <ul>
-<li>🔥LeetCode</li>
-<li>🔥PAT</li>
+<li>🔥<a href="https://leetcode-cn.com/">LeetCode</a></li>
+<li>🔥<a href="https://pintia.cn/">PTA</a></li>
 </ul>
 <h1 id="任务计划">📋任务计划</h1>
 <ul>
@@ -77,7 +77,15 @@
 <li>上传自己的代码</li>
 <li>请求分支合并</li>
 </ol>
-<p>题解请撰写markdown文件 保存至题目相应文件夹内 一同上传。</p>
+<h1 id="题解要求">⛑题解要求</h1>
+<ol>
+<li>题解请撰写markdown文件 保存至题目相应文件夹内 一同上传。</li>
+<li>需要注明题目涉及知识点</li>
+<li>分析解题思路</li>
+<li>可以适当的讲解相关知识点</li>
+<li>可以进行题目的延伸和相关题目的对比和分析</li>
+<li>其他情况可以自行发挥</li>
+</ol>
 <h1 id="题目汇总">📚题目汇总</h1>
 <table>
 <thead>
