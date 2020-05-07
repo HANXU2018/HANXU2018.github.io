@@ -1,122 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://huihe524.github.io</id>
+    <id>https://HANXU2018.github.io</id>
     <title>慧河工作室</title>
-    <updated>2020-03-31T13:42:04.522Z</updated>
+    <updated>2020-05-07T02:31:07.194Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://huihe524.github.io"/>
-    <link rel="self" href="https://huihe524.github.io/atom.xml"/>
+    <link rel="alternate" href="https://HANXU2018.github.io"/>
+    <link rel="self" href="https://HANXU2018.github.io/atom.xml"/>
     <subtitle>河北大学网络空间安全与计算机学院慧河工作室</subtitle>
-    <logo>https://huihe524.github.io/images/avatar.png</logo>
-    <icon>https://huihe524.github.io/favicon.ico</icon>
+    <logo>https://HANXU2018.github.io/images/avatar.png</logo>
+    <icon>https://HANXU2018.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 慧河工作室</rights>
     <entry>
-        <title type="html"><![CDATA[java后台一组的学习计划]]></title>
-        <id>https://huihe524.github.io/post/java-hou-tai-yi-zu/</id>
-        <link href="https://huihe524.github.io/post/java-hou-tai-yi-zu/">
+        <title type="html"><![CDATA[myfirstblog test]]></title>
+        <id>https://HANXU2018.github.io/post/6TAN8pyv9/</id>
+        <link href="https://HANXU2018.github.io/post/6TAN8pyv9/">
         </link>
-        <updated>2020-03-31T10:50:38.000Z</updated>
-        <summary type="html"><![CDATA[<h1 id="学习目标">✨学习目标：</h1>
-<ol>
-<li>帮助大家学习和掌握基础的编程语法。</li>
-<li>从零基础入门 算法和数据结构。</li>
-<li>锻炼git的使用和开源社区的建设</li>
-<li>锻炼自己的语言表达能力和知识点转述能力</li>
-</ol>
-]]></summary>
-        <content type="html"><![CDATA[<h1 id="学习目标">✨学习目标：</h1>
-<ol>
-<li>帮助大家学习和掌握基础的编程语法。</li>
-<li>从零基础入门 算法和数据结构。</li>
-<li>锻炼git的使用和开源社区的建设</li>
-<li>锻炼自己的语言表达能力和知识点转述能力</li>
-</ol>
-<!-- more -->
-<h2 id="开始学习">🕺开始学习</h2>
-<p>2020年的🎈寒假似乎过于漫长，不知道大家学习的效果🌝究竟是什么样的🌚。<br>
-距离上一次培训已经过了很久，很久。👀<br>
-可能大家在家中已经学习了很多新的知识🌹，当然也有可能像我一样把学过的东西都忘得干干净净了。🥀<br>
-不管大家过😊的究竟怎么样，新的学期已经开始了🙇‍♂️其实已经过半了🤦‍♀️。<br>
-为了恢复大家学习的进度🌑🌘🌗🌖🌕我筹备建立一个GitHub的代码仓库，存储大家的学习成果。<br>
-寒假期间 看到了一些大佬的博客 还有发现了谷歌的编程之夏 活动才意识到拥抱开源社区是一件多么重要的事情，希望能够通过这个项目进行学习，让咱们一起共同拥抱GitHub开源社区。</p>
-<p>使用Github仓库进行存储可以保留下大家的学习记录，也能过发扬和传承慧河的学习精神和理念。</p>
-<h1 id="️-仓库地址">✈️ 仓库地址</h1>
-<p><a href="https://github.com/huihe524/huiheDateStruct">📦huiheDateStruct</a></p>
-<h1 id="参与人员">👨‍👩‍👧‍👦 参与人员</h1>
-<ul>
-<li>🙋‍♂Java后台一组全体成员</li>
-<li>🙋任何人均可参与构建仓库 感兴趣的童鞋都可以加入进来大家一起学习。</li>
-</ul>
-<h1 id="练习题目范围">📝练习题目范围</h1>
-<p>目前拟定题库选自</p>
-<ul>
-<li>🔥<a href="https://leetcode-cn.com/">LeetCode</a></li>
-<li>🔥<a href="https://pintia.cn/">PTA</a></li>
-</ul>
-<h1 id="任务计划">📋任务计划</h1>
-<ul>
-<li>每日一题 从基础到入门 （因为再往后我就不会了，没法帮助大家了😂）</li>
-<li>每天有一个人负责上传自己的题解✏️ 锻炼大家的表述能力 并练习使用GitHub仓库</li>
-<li>没有强制要求，跟得上的同学就跟着做，跟不上的同学可以慢慢来，至少每周一道题即可。</li>
-<li>前期组长进行选题，后续大家自行进行选题。</li>
-<li>默认使用java编程语言进行解题，希望有能力和时间的同学上传其他语言代码👏</li>
-</ul>
-<h1 id="前置准备">👩‍💻前置准备</h1>
-<ul>
-<li>注册GitHub账号</li>
-<li>学习markdown基础语法</li>
-<li>加入慧河组织 <a href="https://github.com/huihe524">huihe524✈️github链接</a></li>
-<li>star并 clone仓库 <a href="https://github.com/huihe524/huiheDateStruct">📦huiheDateStruct</a></li>
-</ul>
-<h1 id="参与步骤">🏃参与步骤</h1>
-<ol>
-<li>拉取代码仓库</li>
-<li>找到最新建立的文件夹</li>
-<li>完成文件夹内题目</li>
-<li>将自己的代码保存至文件夹 （命名格式为自己的昵称 例：HANXU2018.java）</li>
-<li>上传自己的代码</li>
-<li>请求分支合并</li>
-</ol>
-<h1 id="题解要求">⛑题解要求</h1>
-<ol>
-<li>题解请撰写markdown文件 保存至题目相应文件夹内 一同上传。</li>
-<li>需要注明题目涉及知识点</li>
-<li>分析解题思路</li>
-<li>可以适当的讲解相关知识点</li>
-<li>可以进行题目的延伸和相关题目的对比和分析</li>
-<li>其他情况可以自行发挥</li>
-</ol>
-<h1 id="题目汇总">📚题目汇总</h1>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">题目地址</th>
-<th style="text-align:center">时间</th>
-<th style="text-align:center">负责同学</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">单元格</td>
-<td style="text-align:center">单元格</td>
-<td style="text-align:center">单元格</td>
-</tr>
-<tr>
-<td style="text-align:center">单元格</td>
-<td style="text-align:center">单元格</td>
-<td style="text-align:center">单元格</td>
-</tr>
-</tbody>
-</table>
-<h1 id="联系方式">📪联系方式</h1>
-<p>🔗<a href="https://jq.qq.com/?_wv=1027&amp;k=5yn8EdK">慧河后台一组Q群</a><br>
-🌝 项目负责javaGroup1组长 <a href="https://github.com/HANXU2018">HANXU2018</a>:</p>
-<ul>
-<li>📧1076998404@qq.com</li>
-<li>🎉<a href="https://hanxu.blog.csdn.net/">博客链接</a></li>
-<li>🎉<a href="https://github.com/HANXU2018">github链接</a><br>
-更新2020年3月31日21:00:51</li>
-</ul>
+        <updated>2020-05-07T02:28:23.000Z</updated>
+        <content type="html"><![CDATA[<p>myfirstblog test</p>
 ]]></content>
     </entry>
 </feed>
