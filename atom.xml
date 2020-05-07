@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://HANXU2018.github.io</id>
-    <title>慧河工作室</title>
-    <updated>2020-05-07T02:31:07.194Z</updated>
+    <title>HANXU2018 blog</title>
+    <updated>2020-05-07T02:32:13.639Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://HANXU2018.github.io"/>
     <link rel="self" href="https://HANXU2018.github.io/atom.xml"/>
-    <subtitle>河北大学网络空间安全与计算机学院慧河工作室</subtitle>
+    <subtitle>Han xu&apos;s personal blog</subtitle>
     <logo>https://HANXU2018.github.io/images/avatar.png</logo>
     <icon>https://HANXU2018.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, 慧河工作室</rights>
+    <rights>All rights reserved 2020, HANXU2018 blog</rights>
     <entry>
         <title type="html"><![CDATA[myfirstblog test]]></title>
         <id>https://HANXU2018.github.io/post/6TAN8pyv9/</id>
