@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://HANXU2018.github.io</id>
     <title>HANXU2018 blog</title>
-    <updated>2020-05-10T10:27:25.603Z</updated>
+    <updated>2020-05-10T10:28:06.603Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://HANXU2018.github.io"/>
     <link rel="self" href="https://HANXU2018.github.io/atom.xml"/>
@@ -80,8 +80,7 @@ My Chinese blog in CSDN site https://hanxu.blog.csdn.net/<br>
         <link href="https://HANXU2018.github.io/post/about/">
         </link>
         <updated>2020-05-07T02:33:33.000Z</updated>
-        <content type="html"><![CDATA[<p>guoqi<br>
-😁My name is han xu.<br>
+        <content type="html"><![CDATA[<p>😁My name is han xu.<br>
 I am a student of hebei university in China.🇨🇳<br>
 Is an information security sophomore undergraduate (as of May 2020📅).</p>
 <p>I'm interested in the open source culture of the github community.<br>
