@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://HANXU2018.github.io</id>
     <title>HANXU2018 blog</title>
-    <updated>2020-05-10T10:31:04.124Z</updated>
+    <updated>2020-05-18T14:04:14.055Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://HANXU2018.github.io"/>
     <link rel="self" href="https://HANXU2018.github.io/atom.xml"/>
@@ -10,6 +10,158 @@
     <logo>https://HANXU2018.github.io/images/avatar.png</logo>
     <icon>https://HANXU2018.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, HANXU2018 blog</rights>
+    <entry>
+        <title type="html"><![CDATA[[Docker Practical learning] 01 The basic concepts of docker]]></title>
+        <id>https://HANXU2018.github.io/post/ucr0ay4MB/</id>
+        <link href="https://HANXU2018.github.io/post/ucr0ay4MB/">
+        </link>
+        <updated>2020-05-18T13:11:18.000Z</updated>
+        <summary type="html"><![CDATA[<p>🐳 The content of docker's preliminary learning</p>
+<ol>
+<li>Basic concepts of Docker</li>
+<li>Install the Docker</li>
+<li>Docker runs Hello World</li>
+</ol>
+]]></summary>
+        <content type="html"><![CDATA[<p>🐳 The content of docker's preliminary learning</p>
+<ol>
+<li>Basic concepts of Docker</li>
+<li>Install the Docker</li>
+<li>Docker runs Hello World</li>
+</ol>
+<!-- more -->
+<h1 id="the-background-of-the-docker">The background of the docker</h1>
+<ul>
+<li><a href="https://www.infoq.cn/article/docker-core-technology-preview/">🔗link : Docker Core technology preview</a></li>
+<li>Before learning docker, I first learned about his historical background, which is of great help to my study.</li>
+<li>Understanding the history can more quickly understand the direction of the development of technology and the essence of the way to use</li>
+<li>This article introduces the technological development process of Docker, the core technologies in Docker and the related sub-projects, which is a good introduction.</li>
+</ul>
+<h1 id="basic-concepts-of-docker">Basic concepts of Docker</h1>
+<h2 id="container-technology">Container technology</h2>
+<ul>
+<li>The core ideas : Build once, Run anywhere.</li>
+<li>Build,Ship and Run</li>
+<li>Docker basic LXC developed by the go language.</li>
+<li>Open source licenses :Apache2.0</li>
+</ul>
+<h2 id="mirror-container-repository">Mirror container repository</h2>
+<ul>
+<li>
+<p>images</p>
+<ul>
+<li>Similar to a virtual machine images,Read-only template-independent file system</li>
+<li>Can create container</li>
+<li>Build based on DockerFile</li>
+<li>It can be downloaded from Docker Hub(Docker Hub is similar to GitHub)</li>
+</ul>
+</li>
+<li>
+<p>container</p>
+<ul>
+<li>Similar to a virtual machine,can start stop delete ...</li>
+<li>Isolated from each other but not as effective as virtual machines</li>
+<li>Control Groups and Namespace  Implement isolation
+<ul>
+<li>CGroups: Access restrictions on CPU, memory, disk, and other resources</li>
+<li>Namespaces :Provides isolation of system resources: processes, networks, file systems, and so on.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>repository</p>
+<ul>
+<li>It's very similar to Git and GitHub that we learned about before.</li>
+<li>Registry can save images .Docker Hub It's so like a Git Hub.</li>
+<li>Docker supports push and poll like Git。</li>
+</ul>
+</li>
+</ul>
+<h2 id="install-the-docker">Install the docker</h2>
+<ul>
+<li>Docker have two types Community Edition(CE) and Enterprise Edition(EE), i select CE install on Ubuntu18.04</li>
+</ul>
+<ol>
+<li>
+<p>Update software</p>
+<pre><code> sudo apt-get update
+</code></pre>
+</li>
+<li>
+<p>apt-get some tools</p>
+<pre><code>sudo apt-get -y install \
+ apt-transport-https \
+ ca-certificates \
+ curl \
+ software-properties-common
+</code></pre>
+</li>
+<li>
+<p>China's special network adds a mirror image of aliyun</p>
+<pre><code>curl -fsSL http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository &quot;deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable&quot;
+</code></pre>
+</li>
+<li>
+<p>install  docker-engine</p>
+<pre><code>  sudo apt-cache madison docker-engine
+  sudo apt-get remove docker docker-engine docker.io
+  sudo apt-get install docker-ce
+</code></pre>
+<ul>
+<li>Check to see if the right version is available</li>
+<li>remove the docker if out server already has a docker</li>
+<li>Finally, the official installation of docker-ce</li>
+</ul>
+</li>
+<li>
+<p>we can check the docker version</p>
+<pre><code>docker version
+</code></pre>
+</li>
+<li>
+<p>China USES mirror access to speed up</p>
+<ol>
+<li>edit /etc/docker/daemon.json<br>
+<code>sudo vi /etc/docker/daemon.json</code></li>
+</ol>
+</li>
+</ol>
+<pre><code>{
+ &quot;registry-mirrors&quot;: [&quot;https://n6syp70m.mirror.aliyuncs.com&quot;]
+}
+</code></pre>
+<ol start="2">
+<li>sudo service docker restart</li>
+</ol>
+<h2 id="try-helloword-with-docker">Try helloword with docker</h2>
+<p><code>docker container run hello-world</code><br>
+run that command the docker will run and print hello world in terminal</p>
+<h2 id="conclusion">conclusion</h2>
+<p>🐳 The content of docker's preliminary learning</p>
+<ol>
+<li>Basic concepts of Docker</li>
+<li>Install the Docker</li>
+<li>Docker runs Hello World</li>
+</ol>
+<ul>
+<li>This is the first time for me to record my study notes in English.</li>
+<li>I'm trying really hard and I hope it's a good start</li>
+<li>I learn docker on this platform <a href="www.shiyanlou.com">www.shiyanlou.com</a> It's not an AD but it works really well in Chinese  The experiment costs one RMB per hour.But <a href="https://labs.play-with-docker.com/">😁play docker with me</a> is free</li>
+<li>If you have any questions, please contact me.</li>
+</ul>
+<h1 id="contact">contact 🔗</h1>
+<p>My github is <a href="https://github.com/HANXU2018">@HANXU2018</a><br>
+My Chinese blog in CSDN site https://hanxu.blog.csdn.net/<br>
+✉️ google email h1076998404@Gmial.com<br>
+📪QQ mailbox can get my reply faster<br>
+1076998404@qq.com</p>
+<p>thanks<br>
+2020/5/18<br>
+🤝🤝🤝</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[first] Community Bonding]]></title>
         <id>https://HANXU2018.github.io/post/fJkHeRSKU/</id>
