@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://HANXU2018.github.io</id>
     <title>HANXU2018 blog</title>
-    <updated>2020-05-19T03:03:01.156Z</updated>
+    <updated>2020-05-19T03:03:46.123Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://HANXU2018.github.io"/>
     <link rel="self" href="https://HANXU2018.github.io/atom.xml"/>
@@ -487,8 +487,12 @@ My Chinese blog in CSDN site https://hanxu.blog.csdn.net/<br>
         <link href="https://HANXU2018.github.io/post/fJkHeRSKU/">
         </link>
         <updated>2020-05-10T09:22:13.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="intro">intro</h1>
+<p>I would like to thank 🙏 the mentors jean-frederic Clere and George Zaronikas for allowing me to participate in the GSoC activities in 2020😁</p>
+]]></summary>
         <content type="html"><![CDATA[<h1 id="intro">intro</h1>
 <p>I would like to thank 🙏 the mentors jean-frederic Clere and George Zaronikas for allowing me to participate in the GSoC activities in 2020😁</p>
+<!-- more -->
 <h1 id="community-bonding">Community Bonding</h1>
 <p>🍻 During Community Bonding, tutor jean-frederic Clere and I had six emails📧 to communicate with each other this week.<br>
 It is a good exercise opportunity for me to see the outside world.<br>
