@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://HANXU2018.github.io</id>
     <title>HANXU2018 blog</title>
-    <updated>2020-05-21T14:13:33.001Z</updated>
+    <updated>2020-05-22T08:40:50.434Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://HANXU2018.github.io"/>
     <link rel="self" href="https://HANXU2018.github.io/atom.xml"/>
@@ -10,6 +10,33 @@
     <logo>https://HANXU2018.github.io/images/avatar.png</logo>
     <icon>https://HANXU2018.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, HANXU2018 blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Learn GO Hello world]]></title>
+        <id>https://HANXU2018.github.io/post/3s3W8n_md/</id>
+        <link href="https://HANXU2018.github.io/post/3s3W8n_md/">
+        </link>
+        <updated>2020-05-22T08:34:13.000Z</updated>
+        <summary type="html"><![CDATA[<p>I touched on docker a few weeks ago. I knew it code by go language. So i tried hello world with go as a  taste,maybe it's not the right things to do ,but i want to try.</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>I touched on docker a few weeks ago. I knew it code by go language. So i tried hello world with go as a  taste,maybe it's not the right things to do ,but i want to try.</p>
+<!-- more -->
+<h1 id="make-a-file-hellogo">make a file hello.go</h1>
+<pre><code>package main
+
+import (
+    &quot;fmt&quot; //导入fmt包，调用其中的Println()函数
+)
+
+func main() {
+    fmt.Println(&quot;Hello，world！&quot;)
+}
+</code></pre>
+<h1 id="run-the-code">run the code</h1>
+<p>open the terminal and Enter this command<br>
+<code>go run hello.go</code><br>
+wo~ it's a good test.</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[Docker Practical learning] 09 Build my own Docker Registry]]></title>
         <id>https://HANXU2018.github.io/post/TAWNI60TK/</id>
