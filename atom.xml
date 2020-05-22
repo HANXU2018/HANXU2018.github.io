@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://HANXU2018.github.io</id>
     <title>HANXU2018 blog</title>
-    <updated>2020-05-22T09:34:25.170Z</updated>
+    <updated>2020-05-22T09:36:33.806Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://HANXU2018.github.io"/>
     <link rel="self" href="https://HANXU2018.github.io/atom.xml"/>
@@ -12,8 +12,8 @@
     <rights>All rights reserved 2020, HANXU2018 blog</rights>
     <entry>
         <title type="html"><![CDATA[ [Learn GO] basic knowledge]]></title>
-        <id>https://HANXU2018.github.io/post/_N9d16xQz/</id>
-        <link href="https://HANXU2018.github.io/post/_N9d16xQz/">
+        <id>https://HANXU2018.github.io/N9d16xQz/</id>
+        <link href="https://HANXU2018.github.io/N9d16xQz/">
         </link>
         <updated>2020-05-22T08:52:26.000Z</updated>
         <summary type="html"><![CDATA[<h1 id="basic-knowledge">basic knowledge</h1>
@@ -279,8 +279,8 @@ item in slice [0 0 0 0 5 0 0 0 0 0] is: 0 0 0 0 5 0 0 0 0 0
     </entry>
     <entry>
         <title type="html"><![CDATA[[Learn GO] Hello world]]></title>
-        <id>https://HANXU2018.github.io/post/3s3W8n_md/</id>
-        <link href="https://HANXU2018.github.io/post/3s3W8n_md/">
+        <id>https://HANXU2018.github.io/3s3W8n_md/</id>
+        <link href="https://HANXU2018.github.io/3s3W8n_md/">
         </link>
         <updated>2020-05-22T08:34:13.000Z</updated>
         <summary type="html"><![CDATA[<p>I touched on docker a few weeks ago. I knew it code by go language. So i tried hello world with go as a  taste,maybe it's not the right things to do ,but i want to try.</p>
@@ -317,8 +317,8 @@ wo~ it's a good test.</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[[Docker Practical learning] 09 Build my own Docker Registry]]></title>
-        <id>https://HANXU2018.github.io/post/TAWNI60TK/</id>
-        <link href="https://HANXU2018.github.io/post/TAWNI60TK/">
+        <id>https://HANXU2018.github.io/TAWNI60TK/</id>
+        <link href="https://HANXU2018.github.io/TAWNI60TK/">
         </link>
         <updated>2020-05-21T13:03:48.000Z</updated>
         <summary type="html"><![CDATA[<p>I try to do this things in this Docker learning</p>
@@ -339,8 +339,8 @@ wo~ it's a good test.</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[[Docker Practical learning] 08 Docker Run Wordpress]]></title>
-        <id>https://HANXU2018.github.io/post/T-JYUS0LD/</id>
-        <link href="https://HANXU2018.github.io/post/T-JYUS0LD/">
+        <id>https://HANXU2018.github.io/T-JYUS0LD/</id>
+        <link href="https://HANXU2018.github.io/T-JYUS0LD/">
         </link>
         <updated>2020-05-19T01:54:03.000Z</updated>
         <summary type="html"><![CDATA[<p>I will add the previous content as soon as possible in the future.<br>
@@ -658,8 +658,8 @@ My Chinese blog in CSDN site https://hanxu.blog.csdn.net/<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[[Docker Practical learning] 01 The basic concepts of docker]]></title>
-        <id>https://HANXU2018.github.io/post/ucr0ay4MB/</id>
-        <link href="https://HANXU2018.github.io/post/ucr0ay4MB/">
+        <id>https://HANXU2018.github.io/ucr0ay4MB/</id>
+        <link href="https://HANXU2018.github.io/ucr0ay4MB/">
         </link>
         <updated>2020-05-18T13:11:18.000Z</updated>
         <summary type="html"><![CDATA[<p>🐳 The content of docker's preliminary learning</p>
@@ -810,8 +810,8 @@ My Chinese blog in CSDN site https://hanxu.blog.csdn.net/<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[[first] Community Bonding]]></title>
-        <id>https://HANXU2018.github.io/post/fJkHeRSKU/</id>
-        <link href="https://HANXU2018.github.io/post/fJkHeRSKU/">
+        <id>https://HANXU2018.github.io/fJkHeRSKU/</id>
+        <link href="https://HANXU2018.github.io/fJkHeRSKU/">
         </link>
         <updated>2020-05-10T09:22:13.000Z</updated>
         <summary type="html"><![CDATA[<h1 id="intro">intro</h1>
@@ -875,8 +875,8 @@ My Chinese blog in CSDN site https://hanxu.blog.csdn.net/<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[AboutMe]]></title>
-        <id>https://HANXU2018.github.io/post/about/</id>
-        <link href="https://HANXU2018.github.io/post/about/">
+        <id>https://HANXU2018.github.io/about/</id>
+        <link href="https://HANXU2018.github.io/about/">
         </link>
         <updated>2020-05-07T02:33:33.000Z</updated>
         <content type="html"><![CDATA[<p>😁My name is han xu.<br>

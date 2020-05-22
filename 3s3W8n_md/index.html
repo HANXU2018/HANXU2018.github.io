@@ -1,0 +1,207 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>[Learn GO] Hello world | HANXU2018 blog</title>
+<link rel="shortcut icon" href="https://HANXU2018.github.io/favicon.ico?v=1590140191094">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://HANXU2018.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="[Learn GO] Hello world | HANXU2018 blog - Atom Feed" href="https://HANXU2018.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="I touched on docker a few weeks ago. I knew it code by go language. So i tried hello world with go as a  taste,maybe it'..." />
+    <meta name="keywords" content="Go" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://HANXU2018.github.io">
+  <img class="avatar" src="https://HANXU2018.github.io/images/avatar.png?v=1590140191094" alt="">
+  </a>
+  <h1 class="site-title">
+    HANXU2018 blog
+  </h1>
+  <p class="site-description">
+    Han xu's personal blog
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          index
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          archives
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          tags
+        </a>
+      
+    
+      
+        <a href="/post/about/" class="menu">
+          about
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/HANXU2018" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              [Learn GO] Hello world
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-05-22
+              </span>
+              <span>
+                1 min read
+              </span>
+              
+                <a href="https://HANXU2018.github.io/8Fcthhy_O/" class="post-tag">
+                  # Go
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://i.loli.net/2020/05/22/LuxvXaWY8FjRKl1.png" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>I touched on docker a few weeks ago. I knew it code by go language. So i tried hello world with go as a  taste,maybe it's not the right things to do ,but i want to try.</p>
+<!-- more -->
+<h1 id="make-a-file-hellogo">make a file hello.go</h1>
+<pre><code>package main
+
+import (
+    &quot;fmt&quot; //导入fmt包，调用其中的Println()函数
+)
+
+func main() {
+    fmt.Println(&quot;Hello，world！&quot;)
+}
+</code></pre>
+<h1 id="run-the-code">run the code</h1>
+<p>open the terminal and Enter this command<br>
+<code>go run hello.go</code><br>
+wo~ it's a good test.</p>
+<h1 id="basic-knowledge">basic knowledge</h1>
+<ul>
+<li>constant</li>
+<li>variable</li>
+<li>floating-point</li>
+<li>string</li>
+<li>character</li>
+<li>Arrays and slices</li>
+<li>package</li>
+</ul>
+<p>i will record it in next blog</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#make-a-file-hellogo">make a file hello.go</a></li>
+<li><a href="#run-the-code">run the code</a></li>
+<li><a href="#basic-knowledge">basic knowledge</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://HANXU2018.github.io/TAWNI60TK/">
+              <h3 class="post-title">
+                [Docker Practical learning] 09 Build my own Docker Registry
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Han xu's personal blog
+  <a class="rss" href="https://HANXU2018.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
