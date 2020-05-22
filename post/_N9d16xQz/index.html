@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title> [Learn GO] basic knowledge | HANXU2018 blog</title>
-<link rel="shortcut icon" href="https://HANXU2018.github.io/favicon.ico?v=1590137895890">
+<link rel="shortcut icon" href="https://HANXU2018.github.io/favicon.ico?v=1590139890125">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://HANXU2018.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title=" [Learn GO] basic knowledge | HANXU2018 blog - Atom Feed" href="https://HANXU2018.github.io/atom.xml">
@@ -15,16 +15,16 @@
 
 constant
 variable
+integer
 floating-point
+bool
 string
 character
 Arrays and slices
 package
 
 
-basic knowledge
-constant
-..." />
+basic knowle..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -34,7 +34,7 @@ constant
       <div class="main-content">
         <div class="site-header">
   <a href="https://HANXU2018.github.io">
-  <img class="avatar" src="https://HANXU2018.github.io/images/avatar.png?v=1590137895890" alt="">
+  <img class="avatar" src="https://HANXU2018.github.io/images/avatar.png?v=1590139890125" alt="">
   </a>
   <h1 class="site-title">
     HANXU2018 blog
@@ -98,7 +98,7 @@ constant
                 2020-05-22
               </span>
               <span>
-                1 min read
+                7 min read
               </span>
               
             </div>
@@ -111,7 +111,9 @@ constant
 <ul>
 <li>constant</li>
 <li>variable</li>
+<li>integer</li>
 <li>floating-point</li>
+<li>bool</li>
 <li>string</li>
 <li>character</li>
 <li>Arrays and slices</li>
@@ -147,11 +149,210 @@ wa~ it's so amazing this type of const</p>
 const d = iota //d==0
 </code></pre>
 <h2 id="variable">variable</h2>
+<p>some example:</p>
+<pre><code>var a int
+var b string
+var c float64
+var d [5] int  //array 
+var e [] int   //array slice
+var f * int    //right
+var v1 int = 5 //right
+var v2 = 5     //right it can matching type automatic
+v3 := 5        //right it can matching type automatic
+</code></pre>
+<p>there is a amazing code that can exchange values in this way</p>
+<pre><code>i := 2
+j := 3
+i, j = j, i  //change the value, now i == 3，j == 2
+</code></pre>
+<p>int c++ or java i will do this things</p>
+<pre><code>int t;
+t = a;
+a = b;
+b = a;
+</code></pre>
+<p>but in go that can in one line i,j = j,i so interesting!</p>
+<h2 id="interger">interger</h2>
+<p>in go <code>unsafe.Sizeof</code> it's like <code>sizeof</code> int C<br>
+Go has 11 types of integer .<br>
+Talk is cheap.Show me the code.</p>
+<pre><code>package main
+
+import (
+    &quot;fmt&quot;
+    &quot;unsafe&quot;
+)
+
+func main() {
+    a := 12
+    fmt.Println(&quot;length of a: &quot;, unsafe.Sizeof(a))
+    var b int = 12
+    fmt.Println(&quot;length of b(int): &quot;, unsafe.Sizeof(b))
+    var c int8 = 12
+    fmt.Println(&quot;length of c(int8): &quot;, unsafe.Sizeof(c))
+    var d int16 = 12
+    fmt.Println(&quot;length of d(int16): &quot;, unsafe.Sizeof(d))
+    var e int32 = 12
+    fmt.Println(&quot;length of e(int32): &quot;, unsafe.Sizeof(e))
+    var f int64 = 12
+    fmt.Println(&quot;length of f(int64): &quot;, unsafe.Sizeof(f))
+}
+</code></pre>
+<p>The FMT package is used to format strings, and unsafe contains methods for getting information about the Go language type</p>
 <h2 id="floating-point">floating-point</h2>
+<p>Go has two floating point types and two complex types</p>
+<ul>
+<li>
+<p>float 32</p>
+<ul>
+<li>The precision is about 7 decimal Numbers after the decimal point</li>
+</ul>
+</li>
+<li>
+<p>float 64</p>
+<ul>
+<li>The precision is about 15 decimal Numbers after the decimal point</li>
+</ul>
+</li>
+<li>
+<p>complex32</p>
+<ul>
+<li>The real and imaginary parts are all float32</li>
+</ul>
+</li>
+<li>
+<p>complex64</p>
+<ul>
+<li>The real and imaginary parts are all float64</li>
+</ul>
+</li>
+</ul>
+<h2 id="bool">bool</h2>
+<ul>
+<li>bool do not support automatic change and cast type conversion in GO</li>
+</ul>
+<pre><code>var a bool
+a = true
+b := (2 == 3) //b will be bool type
+
+//error example
+var b bool
+b = 1 //error
+b = bool(1) // error
+</code></pre>
 <h2 id="string">string</h2>
+<pre><code>t1 := &quot;\&quot;hello\&quot;&quot;             //msg： &quot;hello&quot;
+t2 := `&quot;hello&quot;`               //msg：the same as t1
+t3 := &quot;\u6B22\u8FCE&quot;          //msg：欢迎
+</code></pre>
+<p>Go use UTF-8 its a very good way to display Chinese characters.<br>
+Strings support many operations,but as the beginner blog i don't want to write it.<br>
+that is an example</p>
+<pre><code>package main
+
+import (
+    &quot;fmt&quot;
+)
+
+func main() {
+    t0 := &quot;\u6B22\u8FCE\u6765\u5230&quot; // t0内容：欢迎来到
+    t1 := &quot;\u5B9E\u9A8C\u697C&quot;       // t1内容：实验楼
+    t2 := t0 + t1
+    for index, char := range t2 {
+        fmt.Printf(&quot;%-2d    %U      '%c'    %X      %d\n&quot;,
+            index, char, char, []byte(string(char)), len([]byte(string(char))))
+    }
+    fmt.Printf(&quot;length of t0: %d, t1: %d, t2: %d\n&quot;, len(t0), len(t1), len(t2))
+    fmt.Printf(&quot;content of t2[0:2] is: %X\n&quot;, t2[0:2])
+}
+</code></pre>
+<p>here is the print on screen</p>
+<pre><code>$ go run string_t.go
+0     U+6B22      '欢'    E6ACA2      3
+3     U+8FCE      '迎'    E8BF8E      3
+6     U+6765      '来'    E69DA5      3
+9     U+5230      '到'    E588B0      3
+12    U+5B9E      '实'    E5AE9E      3
+15    U+9A8C      '验'    E9AA8C      3
+18    U+697C      '楼'    E6A5BC      3
+length of t0: 12, t1: 9, t2: 21
+content of t2[0:2] is: E6AC
+</code></pre>
 <h2 id="character">character</h2>
+<p>Go has two character One is Byte(utf8) another is rune(Unicode )<br>
+Go use byte as usual</p>
 <h2 id="arrays-and-slices">Arrays and slices</h2>
+<p>Go can automatically calculates the length of the array for us<br>
+[length]Type<br>
+[N]Type{value1, value2, ..., valueN}<br>
+[...]Type{value1, value2, ..., valueN}<br>
+... that is so amazing</p>
+<ul>
+<li>slices is a very good progress i think</li>
+</ul>
+<pre><code>package main
+
+import (
+    &quot;fmt&quot;
+)
+
+func main() {
+    a := [...]int{1, 2, 3, 4, 5, 6, 7}
+    fmt.Printf(&quot;len and cap of array %v is: %d and %d\n&quot;, a, len(a), cap(a))
+    fmt.Printf(&quot;item in array: %v is:&quot;, a)
+    for _, value := range a {
+        fmt.Printf(&quot;% d&quot;, value)
+    }
+
+    fmt.Println()
+
+    s1 := a[3:6]
+    fmt.Printf(&quot;len and cap of slice: %v is: %d and %d\n&quot;, s1, len(s1), cap(s1))
+    fmt.Printf(&quot;item in slice: %v is:&quot;, s1)
+    for _, value := range s1 {
+        fmt.Printf(&quot;% d&quot;, value)
+    }
+
+    fmt.Println()
+
+    s1[0] = 456
+    fmt.Printf(&quot;item in array changed after changing slice: %v is:&quot;, s1)
+    for _, value := range a {
+        fmt.Printf(&quot;% d&quot;, value)
+    }
+
+    fmt.Println()
+
+    s2 := make([]int, 10, 20)
+    s2[4] = 5
+    fmt.Printf(&quot;len and cap of slice: %v is: %d and %d\n&quot;, s2, len(s2), cap(s2))
+    fmt.Printf(&quot;item in slice %v is:&quot;, s2)
+    for _, value := range s2 {
+        fmt.Printf(&quot;% d&quot;, value)
+    }
+
+    fmt.Println()
+}
+</code></pre>
+<p>The print information</p>
+<pre><code>$  go run slice_array.go
+len and cap of array [1 2 3 4 5 6 7] is: 7 and 7
+item in array: [1 2 3 4 5 6 7] is: 1 2 3 4 5 6 7
+len and cap of slice: [4 5 6] is: 3 and 4
+item in slice: [4 5 6] is: 4 5 6
+item in array changed after changing slice: [456 5 6] is: 1 2 3 456 5 6 7
+len and cap of slice: [0 0 0 0 5 0 0 0 0 0] is: 10 and 20
+item in slice [0 0 0 0 5 0 0 0 0 0] is: 0 0 0 0 5 0 0 0 0 0
+</code></pre>
 <h2 id="package">package</h2>
+<p>Packages are collections of various types and functions</p>
+<ul>
+<li>$GOPATH
+<ul>
+<li>$GOPATH's SRC directory, each package is placed in a separate directory. It can be share in all code.</li>
+</ul>
+</li>
+</ul>
 
               </div>
               <div class="toc-container">
@@ -161,7 +362,9 @@ const d = iota //d==0
 <ul>
 <li><a href="#constant">constant</a></li>
 <li><a href="#variable">variable</a></li>
+<li><a href="#interger">interger</a></li>
 <li><a href="#floating-point">floating-point</a></li>
+<li><a href="#bool">bool</a></li>
 <li><a href="#string">string</a></li>
 <li><a href="#character">character</a></li>
 <li><a href="#arrays-and-slices">Arrays and slices</a></li>
