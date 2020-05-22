@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://HANXU2018.github.io</id>
     <title>HANXU2018 blog</title>
-    <updated>2020-05-22T08:43:09.058Z</updated>
+    <updated>2020-05-22T08:58:17.826Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://HANXU2018.github.io"/>
     <link rel="self" href="https://HANXU2018.github.io/atom.xml"/>
@@ -11,7 +11,71 @@
     <icon>https://HANXU2018.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, HANXU2018 blog</rights>
     <entry>
-        <title type="html"><![CDATA[Learn GO Hello world]]></title>
+        <title type="html"><![CDATA[ [Learn GO] basic knowledge]]></title>
+        <id>https://HANXU2018.github.io/post/_N9d16xQz/</id>
+        <link href="https://HANXU2018.github.io/post/_N9d16xQz/">
+        </link>
+        <updated>2020-05-22T08:52:26.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="basic-knowledge">basic knowledge</h1>
+<ul>
+<li>constant</li>
+<li>variable</li>
+<li>floating-point</li>
+<li>string</li>
+<li>character</li>
+<li>Arrays and slices</li>
+<li>package</li>
+</ul>
+]]></summary>
+        <content type="html"><![CDATA[<h1 id="basic-knowledge">basic knowledge</h1>
+<ul>
+<li>constant</li>
+<li>variable</li>
+<li>floating-point</li>
+<li>string</li>
+<li>character</li>
+<li>Arrays and slices</li>
+<li>package</li>
+</ul>
+<!-- more -->
+<h1 id="basic-knowledge-2">basic knowledge</h1>
+<h2 id="constant">constant</h2>
+<ul>
+<li>const</li>
+</ul>
+<pre><code>const limit = 512
+const top uint16 = 1421
+const Pi float64 = 3.1415926
+const x,y int = 1,3 
+</code></pre>
+<p>also can write in this way</p>
+<pre><code>const (
+    Cyan = 0
+    Black = 1
+    White = 2
+)
+</code></pre>
+<p><code>true</code> <code>false</code> <code>iota</code>also default in go<br>
+itoa it reset to 0 when the const keyword appears<br>
+wa~ it's so amazing this type of const</p>
+<pre><code>const (
+    a = iota  //a == 0
+    b = iota  //b ==1
+    c = iota  //c == 2
+)
+
+const d = iota //d==0
+</code></pre>
+<h2 id="variable">variable</h2>
+<h2 id="floating-point">floating-point</h2>
+<h2 id="string">string</h2>
+<h2 id="character">character</h2>
+<h2 id="arrays-and-slices">Arrays and slices</h2>
+<h2 id="package">package</h2>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[[Learn GO] Hello world]]></title>
         <id>https://HANXU2018.github.io/post/3s3W8n_md/</id>
         <link href="https://HANXU2018.github.io/post/3s3W8n_md/">
         </link>
@@ -35,6 +99,17 @@ func main() {
 <p>open the terminal and Enter this command<br>
 <code>go run hello.go</code><br>
 wo~ it's a good test.</p>
+<h1 id="basic-knowledge">basic knowledge</h1>
+<ul>
+<li>constant</li>
+<li>variable</li>
+<li>floating-point</li>
+<li>string</li>
+<li>character</li>
+<li>Arrays and slices</li>
+<li>package</li>
+</ul>
+<p>i will record it in next blog</p>
 ]]></content>
     </entry>
     <entry>
