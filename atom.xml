@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://HANXU2018.github.io</id>
     <title>HANXU2018 blog</title>
-    <updated>2020-05-23T16:09:27.969Z</updated>
+    <updated>2020-05-23T16:10:25.311Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://HANXU2018.github.io"/>
     <link rel="self" href="https://HANXU2018.github.io/atom.xml"/>
@@ -77,6 +77,7 @@ when finished <code>docker pull tomcat</code> can see the images that have been 
 <h2 id="docker-ps">docker ps</h2>
 <p>Check for success,if success ,we will see the tomcat container running.</p>
 <h2 id="visit-the-localhost8080-check-the-tomcat-running-condition">visit the localhost:8080 check the tomcat running condition</h2>
+<p>if can you see someting about tomcat on website that you run successfuly.</p>
 ]]></content>
     </entry>
     <entry>
