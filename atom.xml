@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://HANXU2018.github.io</id>
     <title>HANXU2018 blog</title>
-    <updated>2020-05-23T15:54:54.936Z</updated>
+    <updated>2020-05-23T16:09:27.969Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://HANXU2018.github.io"/>
     <link rel="self" href="https://HANXU2018.github.io/atom.xml"/>
@@ -61,8 +61,22 @@ Copy and paste to pull this image</p>
 when finished <code>docker pull tomcat</code> can see the images that have been downloaded</p>
 <ul>
 <li>In China the average home already has 100 megabits of Internet speed,but the speed of visiting foreign websites is always extremely slow.</li>
+<li>thanks for the Chinese Unicorn company like alibaba that can let every one to use their mirrors to speed up.</li>
 </ul>
-<h2 id=""></h2>
+<h2 id="use-tomcat-images">Use tomcat images</h2>
+<p>run this comman</p>
+<pre><code>docker run --name tomcat -p 8080:8080 -v /test:/usr/local/tomcat/webapps/test -d tomcat  
+</code></pre>
+<p>because of i use WIN10 this time i want to share the folder test in tomcat so i do this , but if we use linux we can user this</p>
+<pre><code>docker run --name tomcat -p 8080:8080 -v $PWD/test:/usr/local/tomcat/webapps/test -d tomcat  
+</code></pre>
+<ol>
+<li>-p 8080:8080 Map port 8080 of the container to port 8080 of the host.</li>
+<li>-v $PWD/test:/usr/local/tomcat/webapps/test Mount the test in the current directory on the host to the container's /test</li>
+</ol>
+<h2 id="docker-ps">docker ps</h2>
+<p>Check for success,if success ,we will see the tomcat container running.</p>
+<h2 id="visit-the-localhost8080-check-the-tomcat-running-condition">visit the localhost:8080 check the tomcat running condition</h2>
 ]]></content>
     </entry>
     <entry>

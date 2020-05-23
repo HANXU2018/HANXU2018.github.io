@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Docker Install Tomcat | HANXU2018 blog</title>
-<link rel="shortcut icon" href="https://HANXU2018.github.io/favicon.ico?v=1590249292008">
+<link rel="shortcut icon" href="https://HANXU2018.github.io/favicon.ico?v=1590250164745">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://HANXU2018.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="Docker Install Tomcat | HANXU2018 blog - Atom Feed" href="https://HANXU2018.github.io/atom.xml">
@@ -26,7 +26,7 @@ that can find the Tomcat image on ..." />
       <div class="main-content">
         <div class="site-header">
   <a href="https://HANXU2018.github.io">
-  <img class="avatar" src="https://HANXU2018.github.io/images/avatar.png?v=1590249292008" alt="">
+  <img class="avatar" src="https://HANXU2018.github.io/images/avatar.png?v=1590250164745" alt="">
   </a>
   <h1 class="site-title">
     HANXU2018 blog
@@ -90,7 +90,7 @@ that can find the Tomcat image on ..." />
                 2020-05-23
               </span>
               <span>
-                1 min read
+                2 min read
               </span>
               
             </div>
@@ -128,8 +128,22 @@ Copy and paste to pull this image</p>
 when finished <code>docker pull tomcat</code> can see the images that have been downloaded</p>
 <ul>
 <li>In China the average home already has 100 megabits of Internet speed,but the speed of visiting foreign websites is always extremely slow.</li>
+<li>thanks for the Chinese Unicorn company like alibaba that can let every one to use their mirrors to speed up.</li>
 </ul>
-<h2 id=""></h2>
+<h2 id="use-tomcat-images">Use tomcat images</h2>
+<p>run this comman</p>
+<pre><code>docker run --name tomcat -p 8080:8080 -v /test:/usr/local/tomcat/webapps/test -d tomcat  
+</code></pre>
+<p>because of i use WIN10 this time i want to share the folder test in tomcat so i do this , but if we use linux we can user this</p>
+<pre><code>docker run --name tomcat -p 8080:8080 -v $PWD/test:/usr/local/tomcat/webapps/test -d tomcat  
+</code></pre>
+<ol>
+<li>-p 8080:8080 Map port 8080 of the container to port 8080 of the host.</li>
+<li>-v $PWD/test:/usr/local/tomcat/webapps/test Mount the test in the current directory on the host to the container's /test</li>
+</ol>
+<h2 id="docker-ps">docker ps</h2>
+<p>Check for success,if success ,we will see the tomcat container running.</p>
+<h2 id="visit-the-localhost8080-check-the-tomcat-running-condition">visit the localhost:8080 check the tomcat running condition</h2>
 
               </div>
               <div class="toc-container">
@@ -138,7 +152,9 @@ when finished <code>docker pull tomcat</code> can see the images that have been 
 <ul>
 <li><a href="#1search-the-image-in-docker-hub">1.search the image in docker hub</a></li>
 <li><a href="#docker-pull-tomcat">docker pull tomcat</a></li>
-<li></li>
+<li><a href="#use-tomcat-images">Use tomcat images</a></li>
+<li><a href="#docker-ps">docker ps</a></li>
+<li><a href="#visit-the-localhost8080-check-the-tomcat-running-condition">visit the localhost:8080 check the tomcat running condition</a></li>
 </ul>
 </li>
 </ul>
