@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://HANXU2018.github.io</id>
     <title>HANXU2018 blog</title>
-    <updated>2020-05-22T09:38:41.236Z</updated>
+    <updated>2020-05-23T15:54:54.936Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://HANXU2018.github.io"/>
     <link rel="self" href="https://HANXU2018.github.io/atom.xml"/>
@@ -10,6 +10,61 @@
     <logo>https://HANXU2018.github.io/images/avatar.png</logo>
     <icon>https://HANXU2018.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, HANXU2018 blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Docker Install Tomcat]]></title>
+        <id>https://HANXU2018.github.io/8Yn9NSlmJ/</id>
+        <link href="https://HANXU2018.github.io/8Yn9NSlmJ/">
+        </link>
+        <updated>2020-05-23T15:12:24.000Z</updated>
+        <summary type="html"><![CDATA[<p>In the past study，I know two ways to install Tomcat with Docker</p>
+<ol>
+<li>
+<p>docker pull tomcat</p>
+<ul>
+<li>that can find the Tomcat image on Docker Hub</li>
+</ul>
+</li>
+<li>
+<p>Build with Dockerfile</p>
+<ul>
+<li>I'm not very good at it but this is important.I'll probably write a separate blog about this approach</li>
+</ul>
+</li>
+</ol>
+]]></summary>
+        <content type="html"><![CDATA[<p>In the past study，I know two ways to install Tomcat with Docker</p>
+<ol>
+<li>
+<p>docker pull tomcat</p>
+<ul>
+<li>that can find the Tomcat image on Docker Hub</li>
+</ul>
+</li>
+<li>
+<p>Build with Dockerfile</p>
+<ul>
+<li>I'm not very good at it but this is important.I'll probably write a separate blog about this approach</li>
+</ul>
+</li>
+</ol>
+<!-- more -->
+<h1 id="i-will-record-the-docker-install-tomcat-with-dockerhub-in-this-time">I will record the docker install tomcat with dockerhub in this time.</h1>
+<h2 id="1search-the-image-in-docker-hub">1.search the image in docker hub</h2>
+<p>https://hub.docker.com/_/tomcat<br>
+i can see the commant <code>docker pull tomcat</code><br>
+Copy and paste to pull this image</p>
+<ul>
+<li><code>docker search tomcat</code> that can search the version that can install in our device.</li>
+</ul>
+<h2 id="docker-pull-tomcat">docker pull tomcat</h2>
+<p>i use this to pull the image from dockerhub<br>
+when finished <code>docker pull tomcat</code> can see the images that have been downloaded</p>
+<ul>
+<li>In China the average home already has 100 megabits of Internet speed,but the speed of visiting foreign websites is always extremely slow.</li>
+</ul>
+<h2 id=""></h2>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[ [Learn GO] basic knowledge]]></title>
         <id>https://HANXU2018.github.io/J8sTwmxBz/</id>
@@ -724,7 +779,7 @@ My Chinese blog in CSDN site https://hanxu.blog.csdn.net/<br>
 </ul>
 </li>
 </ul>
-<h2 id="install-the-docker">Install the docker</h2>
+<h2 id="install-the-docker-on-ubuntu">Install the docker on Ubuntu</h2>
 <ul>
 <li>Docker have two types Community Edition(CE) and Enterprise Edition(EE), i select CE install on Ubuntu18.04</li>
 </ul>
