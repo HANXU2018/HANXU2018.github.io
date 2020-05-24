@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Docker Install Tomcat | HANXU2018 blog</title>
-<link rel="shortcut icon" href="https://HANXU2018.github.io/favicon.ico?v=1590250222354">
+<link rel="shortcut icon" href="https://HANXU2018.github.io/favicon.ico?v=1590287748147">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://HANXU2018.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="Docker Install Tomcat | HANXU2018 blog - Atom Feed" href="https://HANXU2018.github.io/atom.xml">
@@ -26,7 +26,7 @@ that can find the Tomcat image on ..." />
       <div class="main-content">
         <div class="site-header">
   <a href="https://HANXU2018.github.io">
-  <img class="avatar" src="https://HANXU2018.github.io/images/avatar.png?v=1590250222354" alt="">
+  <img class="avatar" src="https://HANXU2018.github.io/images/avatar.png?v=1590287748147" alt="">
   </a>
   <h1 class="site-title">
     HANXU2018 blog
@@ -90,7 +90,7 @@ that can find the Tomcat image on ..." />
                 2020-05-23
               </span>
               <span>
-                2 min read
+                3 min read
               </span>
               
             </div>
@@ -145,6 +145,21 @@ when finished <code>docker pull tomcat</code> can see the images that have been 
 <p>Check for success,if success ,we will see the tomcat container running.</p>
 <h2 id="visit-the-localhost8080-check-the-tomcat-running-condition">visit the localhost:8080 check the tomcat running condition</h2>
 <p>if can you see someting about tomcat on website that you run successfuly.</p>
+<h2 id="some-of-the-problems-i-had">Some of the problems I had</h2>
+<p>when i visit the 8080 ,A 404 error occurred.But I realized that tomcat was running successfully.<br>
+when i use <code>docker exec -it 68c241f24239 /bin/bash</code><br>
+Enter the tomcat container<br>
+use <code>ls -l</code><br>
+see that has two folders webapps and webapps.dist<br>
+<code>cd webapps</code> open this folder use <code>ls -l</code> see that it'a empty folder<br>
+<code>cd ../webapps.dist</code> change to this folder taht <code>ls -l</code><br>
+see the Root and other files in this folder<br>
+The tomcat default welcome page is actually placed in the path.<br>
+For demonstration purposes i use <code>mv Root ../webapps</code><br>
+Move the files from the default welcome screen to webapps<br>
+then vist the <code>localhost:8080</code> can see the welcome page</p>
+<p>The good news is that I learned the simple principles of tomcat when I was studying the Java web.<br>
+Otherwise it will take more time to deal with the problem.</p>
 
               </div>
               <div class="toc-container">
@@ -156,6 +171,7 @@ when finished <code>docker pull tomcat</code> can see the images that have been 
 <li><a href="#use-tomcat-images">Use tomcat images</a></li>
 <li><a href="#docker-ps">docker ps</a></li>
 <li><a href="#visit-the-localhost8080-check-the-tomcat-running-condition">visit the localhost:8080 check the tomcat running condition</a></li>
+<li><a href="#some-of-the-problems-i-had">Some of the problems I had</a></li>
 </ul>
 </li>
 </ul>
