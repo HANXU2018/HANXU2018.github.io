@@ -2,17 +2,20 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>[Learn GO] Hello world | HANXU2018 blog</title>
+<title>[use tomcat image]There are someting wrong with me  | HANXU2018 blog</title>
 <link rel="shortcut icon" href="https://HANXU2018.github.io/favicon.ico?v=1590673879159">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://HANXU2018.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="[Learn GO] Hello world | HANXU2018 blog - Atom Feed" href="https://HANXU2018.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="[use tomcat image]There are someting wrong with me  | HANXU2018 blog - Atom Feed" href="https://HANXU2018.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="I touched on docker a few weeks ago. I knew it code by go language. So i tried hello world with go as a  taste,maybe it'..." />
-    <meta name="keywords" content="Go" />
+    <meta name="description" content="There are someting wrong with me
+
+My device is limited in using docker and I need to upgrade my configuration
+There was ..." />
+    <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -78,63 +81,55 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              [Learn GO] Hello world
+              [use tomcat image]There are someting wrong with me 
             </h2>
             <div class="post-info">
               <span>
-                2020-05-22
+                2020-05-28
               </span>
               <span>
-                1 min read
+                2 min read
               </span>
-              
-                <a href="https://HANXU2018.github.io/8Fcthhy_O/" class="post-tag">
-                  # Go
-                </a>
               
             </div>
             
-              <img class="post-feature-image" src="https://i.loli.net/2020/05/22/LuxvXaWY8FjRKl1.png" alt="">
+              <img class="post-feature-image" src="https://i.loli.net/2020/05/28/G5HqSeW4nwxhLtm.png" alt="">
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>I touched on docker a few weeks ago. I knew it code by go language. So i tried hello world with go as a  taste,maybe it's not the right things to do ,but i want to try.</p>
+                <p>There are someting wrong with me</p>
+<ol>
+<li>My device is limited in using docker and I need to upgrade my configuration</li>
+<li>There was a problem deploying the ReadMe for the tomcat repository</li>
+</ol>
 <!-- more -->
-<h1 id="make-a-file-hellogo">make a file hello.go</h1>
-<pre><code>package main
-
-import (
-    &quot;fmt&quot; //导入fmt包，调用其中的Println()函数
-)
-
-func main() {
-    fmt.Println(&quot;Hello，world！&quot;)
-}
-</code></pre>
-<h1 id="run-the-code">run the code</h1>
-<p>open the terminal and Enter this command<br>
-<code>go run hello.go</code><br>
-wo~ it's a good test.</p>
-<h1 id="basic-knowledge">basic knowledge</h1>
-<ul>
-<li>constant</li>
-<li>variable</li>
-<li>floating-point</li>
-<li>string</li>
-<li>character</li>
-<li>Arrays and slices</li>
-<li>package</li>
-</ul>
-<p>i will record it in next blog</p>
+<p>I've been looking into this code repository （https://github.com/apache/tomcat/tree/master/res/tomcat-maven) t）for the last few days</p>
+<p>I cloned this code repository<br>
+use<br>
+mvn clean;<br>
+mvn package<br>
+then<br>
+docker build -t apache/tomcat-maven:1.0 -f ./Dockerfile .</p>
+<p>There are some problems here. It turns out that some configuration files needed are missing.<br>
+I researched and solved the problem after my debugging.<br>
+Thankfully the mirror image of the ali cloud can pull down the required openjdk: 8-jell-alpine<br>
+In the running section below I followed the documentation to run the jar in Java but I haven't seen the results yet<br>
+I changed my mind to run the generated image with docker<br>
+I saw it in the browser<br>
+Apache Tomcat/10.0.0-M3<br>
+This version is so new<br>
+All the versions I have been exposed to are Tomcat 7<br>
+The open source community has access to the latest and most popular technologies</p>
+<p>The next step in the ReadMe.md is Cloud Deployment I haven't been able to practice that yet.</p>
+<p>I had some problems with my dockers in the last two days.<br>
+My 8G device does not meet the minimum configuration requirements<br>
+So I bought another 8 gigabyte memory stick on the shopping website today.<br>
+Thanks for the quick logistics Goods purchased online can be received within 24 hours.</p>
+<p>I think upgrading the equipment will be of great help to my study.</p>
 
               </div>
               <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li><a href="#make-a-file-hellogo">make a file hello.go</a></li>
-<li><a href="#run-the-code">run the code</a></li>
-<li><a href="#basic-knowledge">basic knowledge</a></li>
-</ul>
-
+                
               </div>
             </div>
           </article>
@@ -143,9 +138,9 @@ wo~ it's a good test.</p>
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://HANXU2018.github.io/TAWNI60TK/">
+            <a href="https://HANXU2018.github.io/8Yn9NSlmJ/">
               <h3 class="post-title">
-                [Docker Practical learning] 09 Build my own Docker Registry
+                Docker Install Tomcat
               </h3>
             </a>
           </div>

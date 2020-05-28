@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://HANXU2018.github.io</id>
     <title>HANXU2018 blog</title>
-    <updated>2020-05-24T02:36:33.979Z</updated>
+    <updated>2020-05-28T13:51:21.402Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://HANXU2018.github.io"/>
     <link rel="self" href="https://HANXU2018.github.io/atom.xml"/>
@@ -10,6 +10,49 @@
     <logo>https://HANXU2018.github.io/images/avatar.png</logo>
     <icon>https://HANXU2018.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, HANXU2018 blog</rights>
+    <entry>
+        <title type="html"><![CDATA[[use tomcat image]There are someting wrong with me ]]></title>
+        <id>https://HANXU2018.github.io/jEqxcRGMi/</id>
+        <link href="https://HANXU2018.github.io/jEqxcRGMi/">
+        </link>
+        <updated>2020-05-28T13:46:46.000Z</updated>
+        <summary type="html"><![CDATA[<p>There are someting wrong with me</p>
+<ol>
+<li>My device is limited in using docker and I need to upgrade my configuration</li>
+<li>There was a problem deploying the ReadMe for the tomcat repository</li>
+</ol>
+]]></summary>
+        <content type="html"><![CDATA[<p>There are someting wrong with me</p>
+<ol>
+<li>My device is limited in using docker and I need to upgrade my configuration</li>
+<li>There was a problem deploying the ReadMe for the tomcat repository</li>
+</ol>
+<!-- more -->
+<p>I've been looking into this code repository （https://github.com/apache/tomcat/tree/master/res/tomcat-maven) t）for the last few days</p>
+<p>I cloned this code repository<br>
+use<br>
+mvn clean;<br>
+mvn package<br>
+then<br>
+docker build -t apache/tomcat-maven:1.0 -f ./Dockerfile .</p>
+<p>There are some problems here. It turns out that some configuration files needed are missing.<br>
+I researched and solved the problem after my debugging.<br>
+Thankfully the mirror image of the ali cloud can pull down the required openjdk: 8-jell-alpine<br>
+In the running section below I followed the documentation to run the jar in Java but I haven't seen the results yet<br>
+I changed my mind to run the generated image with docker<br>
+I saw it in the browser<br>
+Apache Tomcat/10.0.0-M3<br>
+This version is so new<br>
+All the versions I have been exposed to are Tomcat 7<br>
+The open source community has access to the latest and most popular technologies</p>
+<p>The next step in the ReadMe.md is Cloud Deployment I haven't been able to practice that yet.</p>
+<p>I had some problems with my dockers in the last two days.<br>
+My 8G device does not meet the minimum configuration requirements<br>
+So I bought another 8 gigabyte memory stick on the shopping website today.<br>
+Thanks for the quick logistics Goods purchased online can be received within 24 hours.</p>
+<p>I think upgrading the equipment will be of great help to my study.</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Docker Install Tomcat]]></title>
         <id>https://HANXU2018.github.io/8Yn9NSlmJ/</id>
