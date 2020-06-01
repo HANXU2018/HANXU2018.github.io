@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://HANXU2018.github.io</id>
     <title>HANXU2018 blog</title>
-    <updated>2020-05-28T13:51:21.402Z</updated>
+    <updated>2020-06-01T14:14:42.963Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://HANXU2018.github.io"/>
     <link rel="self" href="https://HANXU2018.github.io/atom.xml"/>
@@ -10,6 +10,71 @@
     <logo>https://HANXU2018.github.io/images/avatar.png</logo>
     <icon>https://HANXU2018.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, HANXU2018 blog</rights>
+    <entry>
+        <title type="html"><![CDATA[[study k8s]Create a mock environment using VMware]]></title>
+        <id>https://HANXU2018.github.io/RBTBz0s6T/</id>
+        <link href="https://HANXU2018.github.io/RBTBz0s6T/">
+        </link>
+        <updated>2020-06-01T13:41:21.000Z</updated>
+        <summary type="html"><![CDATA[<p>I began to practice using k8s<br>
+I know I need at least three machines to work together<br>
+One master node and two worker nodes<br>
+Today I'm going to use a virtual machine to build a Centos7.0 64  server</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>I began to practice using k8s<br>
+I know I need at least three machines to work together<br>
+One master node and two worker nodes<br>
+Today I'm going to use a virtual machine to build a Centos7.0 64  server</p>
+<!-- more -->
+<h1 id="prepare">prepare</h1>
+<ul>
+<li>Installation kit for centos<br>
+<img src="https://HANXU2018.github.io/post-images/1591019562923.png" alt="Installation kit for centos" loading="lazy"></li>
+<li>VMware</li>
+<li>6G RAM  and 6 Core (2G RAM 2 Core for one node)</li>
+</ul>
+<h1 id="configuration-environment">configuration environment</h1>
+<ol>
+<li>new an environment and choose ios install later.<br>
+<img src="https://HANXU2018.github.io/post-images/1591019913239.png" alt="new an environment and choose ios install later." loading="lazy"></li>
+<li>Choose Linux Centos 7 to install<br>
+<img src="https://HANXU2018.github.io/post-images/1591019977604.png" alt="Choose Linux Centos 7 to install" loading="lazy"></li>
+<li>Use two core<img src="https://HANXU2018.github.io/post-images/1591020030335.png" alt="Use two core" loading="lazy"></li>
+<li>Distribution of 2048 MB <img src="https://HANXU2018.github.io/post-images/1591020063550.png" alt="Distribution of 2048 MB" loading="lazy"></li>
+<li>The hard disk is set to 100GB<img src="https://HANXU2018.github.io/post-images/1591020091283.png" alt="The hard disk is set to 100GB" loading="lazy"></li>
+<li>Everything else is configured by default So that's configured</li>
+</ol>
+<h1 id="lets-start-the-installation">Let's start the installation</h1>
+<ol>
+<li>Configure the installer you just downloaded<img src="https://HANXU2018.github.io/post-images/1591020238933.png" alt="Configure the installer you just downloaded" loading="lazy"></li>
+<li>Choose your locale Chinese is basically at the end<br>
+<img src="https://HANXU2018.github.io/post-images/1591020265122.png" alt="Choose your locale" loading="lazy"></li>
+<li>Configure the warehouse source<br>
+I mentioned that the Chinese network is very special and needs to rely on a unique mirror image<br>
+<img src="https://HANXU2018.github.io/post-images/1591020342520.png" alt="Configure the warehouse source" loading="lazy"></li>
+<li>You still have to open the web link before you do that<br>
+<img src="https://HANXU2018.github.io/post-images/1591020461266.png" alt="You still have to open the web link before you do that" loading="lazy"></li>
+<li>use aliyun mirror<br>
+http://mirrors.aliyun.com/centos/7/os/x86_64/<br>
+<img src="https://HANXU2018.github.io/post-images/1591020479652.png" alt="http://mirrors.aliyun.com/centos/7/os/x86_64/" loading="lazy"></li>
+<li>Install only the smallest part <img src="https://HANXU2018.github.io/post-images/1591020529752.png" alt="Install only the smallest part" loading="lazy"></li>
+<li>Configure the password for root<img src="https://HANXU2018.github.io/post-images/1591020596649.png" alt="Configure the password for root" loading="lazy"></li>
+<li>Wait for the installation to complete<br>
+<img src="https://HANXU2018.github.io/post-images/1591020633803.png" alt="Wait for the installation to complete" loading="lazy"></li>
+</ol>
+<h1 id="accomplish">accomplish</h1>
+<p>login test the install<br>
+<img src="https://HANXU2018.github.io/post-images/1591020658693.png" alt="Log in to check for success" loading="lazy"></p>
+<h1 id="summary">summary</h1>
+<p>I thought installing a virtual machine would be easy<br>
+But there are always problems<br>
+For example, setting the mirror source<br>
+If I don't translate English in the interface carefully<br>
+I wouldn't have known to turn on the Internet first<br>
+Fortunately, these problems have been solved through my own exploration</p>
+<p>Get into the rest of the study~</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[use tomcat image]There are someting wrong with me ]]></title>
         <id>https://HANXU2018.github.io/jEqxcRGMi/</id>
