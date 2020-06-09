@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://HANXU2018.github.io</id>
     <title>HANXU2018 blog</title>
-    <updated>2020-06-01T14:44:36.964Z</updated>
+    <updated>2020-06-09T01:26:05.459Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://HANXU2018.github.io"/>
     <link rel="self" href="https://HANXU2018.github.io/atom.xml"/>
@@ -10,6 +10,45 @@
     <logo>https://HANXU2018.github.io/images/avatar.png</logo>
     <icon>https://HANXU2018.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, HANXU2018 blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Centos7 yum usage errors caused a number of problems]]></title>
+        <id>https://HANXU2018.github.io/O-QCh5Ax2/</id>
+        <link href="https://HANXU2018.github.io/O-QCh5Ax2/">
+        </link>
+        <updated>2020-06-09T01:25:14.000Z</updated>
+        <content type="html"><![CDATA[<p>I had an error using the yum command  in the Centos virtual machine<br>
+The question bothered me for several days<br>
+I gave it a try<br>
+The default warehouse on the special network in China is not available</p>
+<p>I have configured alibaba's warehouse address<br>
+But it didn't work<br>
+I also changed the mirror source of a university in China<br>
+It still doesn't work<br>
+I know this is not the only part of the problem</p>
+<p>I think it is very likely that there is a problem with THE DNS service through querying relevant information<br>
+I tried the most famous Google DNS 8.8.8.8<br>
+And the network provider I used provided the address 114.114.114.114</p>
+<p>Find the problem is still unresolved</p>
+<p>One of the virtual machines even had an error restarting the network<br>
+（systemctl restart network）<br>
+It's confusing to find problems recursively<br>
+I came across a blog entry</p>
+<p>He said because the centos7 Mini was installed<br>
+Almost none of the tools are pre-installed</p>
+<p>The Named server does not exist at all</p>
+<p>The solutions given<br>
+Yum install bind<br>
+The chkconfig named on<br>
+But yum is just not available</p>
+<p>I went through the k8s tutorial again</p>
+<p>Found out I missed an operation<br>
+This is the tool that is pre-installed when centos is installed</p>
+<p>I tried to reinstall my three nodes<br>
+It will take some time, I'm afraid<br>
+But it would be all right if we could solve this problem</p>
+<p>Sure enough, the tutorial doesn't look too hard, but there are all kinds of problems with real hands-on work</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[study k8s]Create a mock environment using VMware]]></title>
         <id>https://HANXU2018.github.io/RBTBz0s6T/</id>
@@ -1064,50 +1103,6 @@ My Chinese blog in CSDN site https://hanxu.blog.csdn.net/<br>
 1076998404@qq.com</p>
 <p>thanks<br>
 2020/5/10<br>
-🤝🤝🤝</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[AboutMe]]></title>
-        <id>https://HANXU2018.github.io/about/</id>
-        <link href="https://HANXU2018.github.io/about/">
-        </link>
-        <updated>2020-05-07T02:33:33.000Z</updated>
-        <content type="html"><![CDATA[<p>😁My name is han xu.<br>
-I am a student of hebei university in China.🇨🇳<br>
-Is an information security sophomore undergraduate (as of May 2020📅).</p>
-<p>I'm interested in the open source culture of the github community.<br>
-In order to record my learning process, I started this blog.<br>
-I like to use LeetCode for code practice every day.<br>
-At present, I mainly study the background development knowledge of Java.<br>
-I taught myself basic C++ syntax to learn data structures<br>
-I have learned C language and python language in school courses and have a little understanding of js<br>
-Currently studying database courses, MySQL is the database environment I am using.<br>
-Participated in the small program cloud development evangelist activity held by tencent community, tried to develop a simple serverless WeChat small program.<br>
-Currently, I use lenovo Y700P to run win10 for daily learning,<br>
-but I am interested in the cool and free Linux desktop environment.<br>
-I tried to install arch on ubuntu18.04 desktop but failed.<br>
-Manjaro felt that it was suitable for me,<br>
-but I finally gave up due to incompatible hardware conditions.<br>
-In a word, I have tried a lot of computer technology,<br>
-but I don't have a deep understanding of it,<br>
-which is both my weakness and my strength.</p>
-<p>I am curious about new technologies and interested in open source culture.<br>
-I have been involved in programming for less than two years and my technical foundation is still very weak and there is still a long way to go.<br>
-I look forward to seeing everyone here continue to learn with me and keep exploring and pursuing the future.<br>
-This is the first time to write a blog in English.<br>
-If you have any questions, please forgive me.<br>
-Your correction is welcome.<br>
-Now I'm learning the springboot framework to develop front and rear split web pages<br>
-Please feel free to contact me if you have any questions</p>
-<p>🔗<br>
-My github is <a href="https://github.com/HANXU2018">@HANXU2018</a><br>
-My Chinese blog in CSDN site https://hanxu.blog.csdn.net/<br>
-✉️ google email h1076998404@Gmial.com<br>
-📪QQ mailbox can get my reply faster<br>
-1076998404@qq.com</p>
-<p>thanks<br>
-2020/5/7<br>
 🤝🤝🤝</p>
 ]]></content>
     </entry>
