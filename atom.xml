@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://HANXU2018.github.io</id>
     <title>HANXU2018 blog</title>
-    <updated>2020-06-09T01:26:05.459Z</updated>
+    <updated>2020-06-09T01:36:15.102Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://HANXU2018.github.io"/>
     <link rel="self" href="https://HANXU2018.github.io/atom.xml"/>
@@ -10,6 +10,40 @@
     <logo>https://HANXU2018.github.io/images/avatar.png</logo>
     <icon>https://HANXU2018.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, HANXU2018 blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Learn about the strange ideas that come from YUM XML and Properties]]></title>
+        <id>https://HANXU2018.github.io/kz5dA-uWs/</id>
+        <link href="https://HANXU2018.github.io/kz5dA-uWs/">
+        </link>
+        <updated>2020-06-09T01:26:21.000Z</updated>
+        <content type="html"><![CDATA[<p>Last week, I learned about the knowledge related to K8S profile<br>
+Yaml, which I came across in the k8S tutorial, is another new configuration file format for me</p>
+<p>Properties,xml,yml<br>
+These file formats all can be used as configuration files<br>
+A strange idea occurred to me</p>
+<p>Why are there so many different kinds of configuration files<br>
+As a beginner, I'm not sure<br>
+But in previous personal insights Shared with other software engineers<br>
+They will say that language is just a tool<br>
+Different programming languages are different pens</p>
+<p>Properties、XML、YAML They all seem to have the same tools<br>
+To improve learning efficiency and communication costs<br>
+Why can't these technologies be unified</p>
+<p>This is a simple thought in my learning process<br>
+Perhaps the idea doesn't make sense to you<br>
+Maybe this kind of thinking has a philosophical feel</p>
+<p>Just like English is becoming more and more popular all over the world<br>
+Why can't there be gradual convergence in technology？<br>
+I don't know if there are other people who have the same strange idea as Me</p>
+<h1 id="tutors-reply">Tutor's reply</h1>
+<p>Unfortunately there are more and more languages in technology it is a<br>
+way to get a language better suited for each technology...</p>
+<ul>
+<li>I think more languages can make different technologies fit different professional needs more professionally</li>
+<li>Of course, it brings with it a lot of drawbacks. Maybe a software engineer needs to master many programming languages, and none of them are very important</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Centos7 yum usage errors caused a number of problems]]></title>
         <id>https://HANXU2018.github.io/O-QCh5Ax2/</id>
@@ -1038,71 +1072,6 @@ My Chinese blog in CSDN site https://hanxu.blog.csdn.net/<br>
 1076998404@qq.com</p>
 <p>thanks<br>
 2020/5/18<br>
-🤝🤝🤝</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[[first] Community Bonding]]></title>
-        <id>https://HANXU2018.github.io/fJkHeRSKU/</id>
-        <link href="https://HANXU2018.github.io/fJkHeRSKU/">
-        </link>
-        <updated>2020-05-10T09:22:13.000Z</updated>
-        <summary type="html"><![CDATA[<h1 id="intro">intro</h1>
-<p>I would like to thank 🙏 the mentors jean-frederic Clere and George Zaronikas for allowing me to participate in the GSoC activities in 2020😁</p>
-]]></summary>
-        <content type="html"><![CDATA[<h1 id="intro">intro</h1>
-<p>I would like to thank 🙏 the mentors jean-frederic Clere and George Zaronikas for allowing me to participate in the GSoC activities in 2020😁</p>
-<!-- more -->
-<h1 id="community-bonding">Community Bonding</h1>
-<p>🍻 During Community Bonding, tutor jean-frederic Clere and I had six emails📧 to communicate with each other this week.<br>
-It is a good exercise opportunity for me to see the outside world.<br>
-It's been a great honor to work with some of the world's top technical mentors.<br>
-I think my tutor is very interesting. 😃He not only can give me technical guidance, but also share the situation with me.<br>
-For me, it was an all-round growth.👍</p>
-<h1 id="schedule-planning">Schedule planning</h1>
-<ul>
-<li>My tutor suggested me to learn docker to understand and understand the knowledge related to containers.🐳<br>
-I think it is a good choice to get to know it as soon as possible.🐋</li>
-<li>At present, my main focus is on the course design of database.🐬</li>
-<li>I'm trying to control git from the command line.I used git for version control before that.But that's all through the official GitHub visual interface. ☀️<br>
-Although it can be used quickly and easily. And it meets my daily needs.<br>
-But I think as a technician you still have to learn to use it in a more geeky way.🐵<br>
-Not to show off, of course, but to be able to use more advanced features.<br>
-And I will definitely use Git's command frequently in the following programming process.🏃<br>
-It's My GitHub commit record .I've obviously been using it a lot more recently.</li>
-</ul>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2020/05/10/l1CvdRt7gcDYMNE.png" alt="My GitHub commit record" loading="lazy"></figure>
-<h1 id="this-weeks-summary">This week's summary</h1>
-<ul>
-<li>After learning that I was selected to CSoC, I spent a day to understand the requirements of this activity and how to proceed to the next step, trying to contact the tutor and other students from China.It's a very interesting thing.And I got to know a lot of good students from good universities.👬</li>
-</ul>
-<h2 id="laboratory-building-learning-records"><a href="https://github.com/HANXU2018/shiyanlou">🔗Laboratory building learning records</a>  I created a repository specifically for recording my learning code on a Chinese online programming site</h2>
-<ul>
-<li>I can learn by coding on the server they provide.A learning log similar to the little green dot on GitHub will be generated.You can check the submission records of my warehouse to see what I have learned recently.</li>
-<li>I will also learn the knowledge related to operation and maintenance such as k8s.</li>
-</ul>
-<h2 id="springbootvuedemo"><a href="https://github.com/huihe524/SpringbootVueDemo">📦SpringbootVueDemo</a></h2>
-<ul>
-<li>This is the repository I created this afternoon for technology sharing in the school's in-house developer community.Springboot and Vue are techniques I've only recently learned.</li>
-<li>I was the technical director of Java development in the school's developer community intelligent river(Because the name of our university is hebei because it is north of the Yellow River,he is River and bei is north in Chinese).</li>
-<li>There will be regular technology sharing every weekend, leading junior students to learn.</li>
-<li>👫Share your knowledge to improve yourself.No sooner had I learned it than I began to impart my knowledge.I think it's a great workout for me.</li>
-<li>I'm also trying to run our community on GitHub and keep a record of every learning experience we share.I think it's great.✨</li>
-</ul>
-<h2 id="web-security-code-warehouse"><a href="https://github.com/HANXU2018/WebSecurityCourseCode">📦web security Code warehouse </a></h2>
-<ul>
-<li>I completed the experiment of the web security course and tried to upload it to Github warehouse for the first time to show others the internal learning records of my school.</li>
-</ul>
-<h1 id="end">end</h1>
-<p>😁That's what I'm trying to do this week.I'm sure next week will be better.</p>
-<h1 id="to-contact-me">🔗To contact me</h1>
-<p>My github is <a href="https://github.com/HANXU2018">@HANXU2018</a><br>
-My Chinese blog in CSDN site https://hanxu.blog.csdn.net/<br>
-✉️ google email h1076998404@Gmial.com<br>
-📪QQ mailbox can get my reply faster<br>
-1076998404@qq.com</p>
-<p>thanks<br>
-2020/5/10<br>
 🤝🤝🤝</p>
 ]]></content>
     </entry>
