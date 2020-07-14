@@ -1,0 +1,234 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>[K8S&amp;K3S]comparison test First summarized | HANXU2018 blog</title>
+<link rel="shortcut icon" href="https://HANXU2018.github.io/favicon.ico?v=1594740503211">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://HANXU2018.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="[K8S&amp;K3S]comparison test First summarized | HANXU2018 blog - Atom Feed" href="https://HANXU2018.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="what is k8s and k3s
+k8s
+K8s is an abbreviation for &quot;8&quot; instead of &quot;Ubernete&quot;.
+The Greek word Kuberne..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://HANXU2018.github.io">
+  <img class="avatar" src="https://HANXU2018.github.io/images/avatar.png?v=1594740503211" alt="">
+  </a>
+  <h1 class="site-title">
+    HANXU2018 blog
+  </h1>
+  <p class="site-description">
+    Han xu's personal blog
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          index
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          archives
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          tags
+        </a>
+      
+    
+      
+        <a href="/post/about/" class="menu">
+          about
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/HANXU2018" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              [K8S&amp;K3S]comparison test First summarized
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-07-14
+              </span>
+              <span>
+                4 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h1 id="what-is-k8s-and-k3s">what is k8s and k3s</h1>
+<h3 id="k8s">k8s</h3>
+<p>K8s is an abbreviation for &quot;8&quot; instead of &quot;Ubernete&quot;.<br>
+The Greek word Kubernetes means &quot;helmsman&quot; or &quot;navigator,&quot; and is the root of &quot;manager&quot; and &quot;cybernetics.&quot;</p>
+<p>Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem. Kubernetes services, support, and tools are widely available.</p>
+<h3 id="k3s">k3s</h3>
+<p>K3s is the Lightweight Kubernetes<br>
+The certified Kubernetes distribution built for IoT &amp; Edge computing</p>
+<p>What is the full name of K3S ?<br>
+K3s doesn't have a full name, we're just comparing it to k8S.</p>
+<blockquote>
+<p>The answer comes from the engineers in the K3S development community<br>
+https://shimo.im/docs/HjYY8c836jPgPJK9/read</p>
+</blockquote>
+<p>In my opinion, K3S is a similar tool to K8S.<br>
+But k3S is more lightweight such as k3S minimum requirement configuration 1 core and 512 M RAM.( 0.5 G RAM)<br>
+Recent request of K8S 2 core and 4096 M RAM ( 4.0 GB).</p>
+<p>Of course, is that really the case?<br>
+In the future, I will conduct tests and write comparative documents.</p>
+<h2 id="what-i-did">what i did</h2>
+<p>I will complete the comparison test of K8S and K3S.<br>
+I encountered a lot of details during the test<br>
+I believe you may also meet<br>
+I will rearrange the process of my previous experiment<br>
+And share my problems and solutions<br>
+This looks pretty simple<br>
+But to really get started you have a lot of different problems<br>
+For example, if you can't pull the image, for example, the experimental Linux installation environment k3S is not suitable</p>
+<p>I am very grateful to my advisor for giving me time and guidance so that I can always learn to solve these problems</p>
+<p>I have finished the local experiment and am compiling the documentation there</p>
+<ul>
+<li>Single node deployment k8S</li>
+<li>Single node deployment k3S</li>
+<li>Multi-node k8S deployment</li>
+<li>Multi-node k3S deployment</li>
+<li>Deploy K3S with minimal configuration</li>
+<li>K8s start dashboard for visual management</li>
+<li>K3s users rancher for visual management</li>
+<li>Off-line deployment of K8S for information security without external network production environment</li>
+<li>Off-line deployment of K3S for information security without external network production environment</li>
+</ul>
+<h2 id="what-i-will-do">What I will do</h2>
+<p>The above experiments will be recorded and published as a blog.<br>
+It can help students who haven't studied to learn together or make reference to problems</p>
+<p>All the experiments I designed by myself are controlled designs of K3S and K8S</p>
+<p>Except for the records of each experiment,I'll also post a control evaluation after the two trials.</p>
+<p>It's hard to say whether k8s is better or k3S<br>
+It's hard for me to say it directly<br>
+But I recorded the experiment and my subjective feelings<br>
+Hopefully it will help the novice to get started<br>
+And engineers in the process of technical selection for reference</p>
+<p>I hope my learning process and record can produce value</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#what-is-k8s-and-k3s">what is k8s and k3s</a><br>
+*
+<ul>
+<li><a href="#k8s">k8s</a></li>
+<li><a href="#k3s">k3s</a></li>
+<li><a href="#what-i-did">what i did</a></li>
+<li><a href="#what-i-will-do">What I will do</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://HANXU2018.github.io/kz5dA-uWs/">
+              <h3 class="post-title">
+                Learn about the strange ideas that come from YUM XML and Properties
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Han xu's personal blog
+  <a class="rss" href="https://HANXU2018.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
