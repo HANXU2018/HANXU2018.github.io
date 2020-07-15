@@ -1,0 +1,297 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>[K8S&amp;K3S]The establishment of experimental environment | HANXU2018 blog</title>
+<link rel="shortcut icon" href="https://HANXU2018.github.io/favicon.ico?v=1594796363986">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://HANXU2018.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="[K8S&amp;K3S]The establishment of experimental environment | HANXU2018 blog - Atom Feed" href="https://HANXU2018.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="Environmental preparation
+Environmental list
+Before the experimental tests , be prepared to deploy the system server env..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://HANXU2018.github.io">
+  <img class="avatar" src="https://HANXU2018.github.io/images/avatar.png?v=1594796363986" alt="">
+  </a>
+  <h1 class="site-title">
+    HANXU2018 blog
+  </h1>
+  <p class="site-description">
+    Han xu's personal blog
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          index
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          archives
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          tags
+        </a>
+      
+    
+      
+        <a href="/post/about/" class="menu">
+          about
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/HANXU2018" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              [K8S&amp;K3S]The establishment of experimental environment
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-07-14
+              </span>
+              <span>
+                4 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h1 id="environmental-preparation">Environmental preparation</h1>
+<h2 id="environmental-list">Environmental list</h2>
+<p>Before the experimental tests , be prepared to deploy the system server environment for testing.<br>
+I prepared the following environment</p>
+<ul>
+<li>test system
+<ul>
+<li>windos10</li>
+<li>ubuntu18.04</li>
+<li>centos7</li>
+<li>mac os10.15.5</li>
+</ul>
+</li>
+<li>Using configuration
+<ul>
+<li>1 Core and 75MB (k3s Agent minimum requirement )</li>
+<li>1 Core and 512MB (k3s Server minimum requirement )</li>
+<li>1 Core and 1GB (Rancher 2.2 Server minimum requirement )</li>
+<li>1 Core and 2GB (Rancher 2.x Server + K3S Server + K3S Agent minimum requirement)</li>
+<li>2 Core and 4GB (k8s minimum requirement )</li>
+<li>4 Core and 4GB (k3s Slave recommended configuration)</li>
+</ul>
+</li>
+</ul>
+<h2 id="real-environment-building-process">Real environment building process</h2>
+<ul>
+<li>
+<p>windos10 (LEGION laptop Y700P i5 8300H 16GB )</p>
+<ul>
+<li>open Hyper-V and isntall minikube deploy single k8s</li>
+<li>Use Virtual Machine to simulate the Linux environment of Ubuntu 18.04 and CentOS7(that i recommand)</li>
+</ul>
+</li>
+<li>
+<p>ubuntu18.04(Assembled desktop i3 4 GB )</p>
+<ul>
+<li>Use Virtual Machine to simulate the Linux environment of Ubuntu 18.04</li>
+</ul>
+</li>
+<li>
+<p>mac os10.15.5(i5 9400F 16GB)</p>
+<ul>
+<li>Use multipass. Allows users to coordinate the creation, administration and maintenance of the Ubuntu Linux virtual machine.</li>
+</ul>
+</li>
+<li>
+<p>tencent cloud Online cloud service providers</p>
+<ul>
+<li>I rent the hourly billing server and can directly select any configured machine to install ubuntu 18.04 or CENTOS 7 system images
+<ul>
+<li>( That's what I recommend Due to the restrictions of the Internet environment in China, the Google warehouse cannot be accessed smoothly .</li>
+<li>The server in Silicon Valley can be rented directly and smoothly to pull the experimental image)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="explanation-of-experimental-environment-selection">Explanation of experimental environment selection</h2>
+<ul>
+<li>
+<p>Win10 can install single-node K8S with minikube</p>
+<ul>
+<li>Win10 systems have the highest market occupancy and developers can test k8S deployment services in a Win10 environment.This is not supported by K3S</li>
+</ul>
+</li>
+<li>
+<p>Mac os Not being able to deploy k3S and K8S directly can be implemented with virtual machines.</p>
+<ul>
+<li>Win10 can also be implemented with the help of virtual machine, so the subsequent only record virtual machine environment deployment. The specific deployment within the virtual machine will be categorized into Linux environment deployment</li>
+</ul>
+</li>
+<li>
+<p>CentOS7</p>
+<ul>
+<li>A Linux distribution of RHEL .  Most companies in China use it</li>
+<li>K8s can be well compatible due to its maturity</li>
+<li>K3s is not fully mature and is officially compatible with Ubuntu18.04 but not fully compatible with CentOS.</li>
+</ul>
+</li>
+<li>
+<p>Ubuntu18.04</p>
+<ul>
+<li>Simple, stable, and easy to use are different from CentOS</li>
+<li>Linux users use Ubuntu on a daily basis</li>
+<li>K3s already has very good support for it</li>
+<li>The K8S is very mature and certainly can be used smoothly</li>
+</ul>
+</li>
+</ul>
+<h1 id="summary-of-experimental-environment">Summary of experimental environment</h1>
+<h2 id="mac-os-and-win10">Mac OS and Win10</h2>
+<ul>
+<li>The vast majority of developers are using systems<br>
+-Windows 10 and Mac OS don't have full K8S and K3S adapters,In most cases, virtual machines are also required for installation and deployment.</li>
+</ul>
+<h2 id="centos-7">CentOS 7</h2>
+<ul>
+<li>CentOS is mature and secure and used by most businesses.</li>
+<li>Suitable for mature K8S technology.</li>
+<li>K3s has some drawbacks but is still trying to fit in and may be perfect later</li>
+</ul>
+<h2 id="ubuntu1804">Ubuntu18.04</h2>
+<p>-Ubuntu Linux systems with a high user base are both user interface and hardware compatible</p>
+<ul>
+<li>Both K8S and K3S work well together</li>
+<li>The best area for Ubuntu to be used is the desktop operating system. Not the server operating system. Ubuntu consumes hundreds of megabytes of drivers and precious memory</li>
+</ul>
+<h1 id="finally">finally</h1>
+<p>If you find any problems with my article, please point out that I will fix them immediately.<br>
+I am also a beginner please forgive me.</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#environmental-preparation">Environmental preparation</a>
+<ul>
+<li><a href="#environmental-list">Environmental list</a></li>
+<li><a href="#real-environment-building-process">Real environment building process</a></li>
+<li><a href="#explanation-of-experimental-environment-selection">Explanation of experimental environment selection</a></li>
+</ul>
+</li>
+<li><a href="#summary-of-experimental-environment">Summary of experimental environment</a>
+<ul>
+<li><a href="#mac-os-and-win10">Mac OS and Win10</a></li>
+<li><a href="#centos-7">CentOS 7</a></li>
+<li><a href="#ubuntu1804">Ubuntu18.04</a></li>
+</ul>
+</li>
+<li><a href="#finally">finally</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://HANXU2018.github.io/94QoMHeXs/">
+              <h3 class="post-title">
+                [K8S&amp;K3S]comparison test First summarized
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Han xu's personal blog
+  <a class="rss" href="https://HANXU2018.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

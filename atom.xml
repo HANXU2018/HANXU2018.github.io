@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://HANXU2018.github.io</id>
     <title>HANXU2018 blog</title>
-    <updated>2020-07-14T15:34:22.491Z</updated>
+    <updated>2020-07-15T06:59:27.160Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://HANXU2018.github.io"/>
     <link rel="self" href="https://HANXU2018.github.io/atom.xml"/>
@@ -10,6 +10,124 @@
     <logo>https://HANXU2018.github.io/images/avatar.png</logo>
     <icon>https://HANXU2018.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, HANXU2018 blog</rights>
+    <entry>
+        <title type="html"><![CDATA[[K8S&K3S]The establishment of experimental environment]]></title>
+        <id>https://HANXU2018.github.io/5MuoKdzEN/</id>
+        <link href="https://HANXU2018.github.io/5MuoKdzEN/">
+        </link>
+        <updated>2020-07-14T15:35:26.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="environmental-preparation">Environmental preparation</h1>
+<h2 id="environmental-list">Environmental list</h2>
+<p>Before the experimental tests , be prepared to deploy the system server environment for testing.<br>
+I prepared the following environment</p>
+<ul>
+<li>test system
+<ul>
+<li>windos10</li>
+<li>ubuntu18.04</li>
+<li>centos7</li>
+<li>mac os10.15.5</li>
+</ul>
+</li>
+<li>Using configuration
+<ul>
+<li>1 Core and 75MB (k3s Agent minimum requirement )</li>
+<li>1 Core and 512MB (k3s Server minimum requirement )</li>
+<li>1 Core and 1GB (Rancher 2.2 Server minimum requirement )</li>
+<li>1 Core and 2GB (Rancher 2.x Server + K3S Server + K3S Agent minimum requirement)</li>
+<li>2 Core and 4GB (k8s minimum requirement )</li>
+<li>4 Core and 4GB (k3s Slave recommended configuration)</li>
+</ul>
+</li>
+</ul>
+<h2 id="real-environment-building-process">Real environment building process</h2>
+<ul>
+<li>
+<p>windos10 (LEGION laptop Y700P i5 8300H 16GB )</p>
+<ul>
+<li>open Hyper-V and isntall minikube deploy single k8s</li>
+<li>Use Virtual Machine to simulate the Linux environment of Ubuntu 18.04 and CentOS7(that i recommand)</li>
+</ul>
+</li>
+<li>
+<p>ubuntu18.04(Assembled desktop i3 4 GB )</p>
+<ul>
+<li>Use Virtual Machine to simulate the Linux environment of Ubuntu 18.04</li>
+</ul>
+</li>
+<li>
+<p>mac os10.15.5(i5 9400F 16GB)</p>
+<ul>
+<li>Use multipass. Allows users to coordinate the creation, administration and maintenance of the Ubuntu Linux virtual machine.</li>
+</ul>
+</li>
+<li>
+<p>tencent cloud Online cloud service providers</p>
+<ul>
+<li>I rent the hourly billing server and can directly select any configured machine to install ubuntu 18.04 or CENTOS 7 system images
+<ul>
+<li>( That's what I recommend Due to the restrictions of the Internet environment in China, the Google warehouse cannot be accessed smoothly .</li>
+<li>The server in Silicon Valley can be rented directly and smoothly to pull the experimental image)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="explanation-of-experimental-environment-selection">Explanation of experimental environment selection</h2>
+<ul>
+<li>
+<p>Win10 can install single-node K8S with minikube</p>
+<ul>
+<li>Win10 systems have the highest market occupancy and developers can test k8S deployment services in a Win10 environment.This is not supported by K3S</li>
+</ul>
+</li>
+<li>
+<p>Mac os Not being able to deploy k3S and K8S directly can be implemented with virtual machines.</p>
+<ul>
+<li>Win10 can also be implemented with the help of virtual machine, so the subsequent only record virtual machine environment deployment. The specific deployment within the virtual machine will be categorized into Linux environment deployment</li>
+</ul>
+</li>
+<li>
+<p>CentOS7</p>
+<ul>
+<li>A Linux distribution of RHEL .  Most companies in China use it</li>
+<li>K8s can be well compatible due to its maturity</li>
+<li>K3s is not fully mature and is officially compatible with Ubuntu18.04 but not fully compatible with CentOS.</li>
+</ul>
+</li>
+<li>
+<p>Ubuntu18.04</p>
+<ul>
+<li>Simple, stable, and easy to use are different from CentOS</li>
+<li>Linux users use Ubuntu on a daily basis</li>
+<li>K3s already has very good support for it</li>
+<li>The K8S is very mature and certainly can be used smoothly</li>
+</ul>
+</li>
+</ul>
+<h1 id="summary-of-experimental-environment">Summary of experimental environment</h1>
+<h2 id="mac-os-and-win10">Mac OS and Win10</h2>
+<ul>
+<li>The vast majority of developers are using systems<br>
+-Windows 10 and Mac OS don't have full K8S and K3S adapters,In most cases, virtual machines are also required for installation and deployment.</li>
+</ul>
+<h2 id="centos-7">CentOS 7</h2>
+<ul>
+<li>CentOS is mature and secure and used by most businesses.</li>
+<li>Suitable for mature K8S technology.</li>
+<li>K3s has some drawbacks but is still trying to fit in and may be perfect later</li>
+</ul>
+<h2 id="ubuntu1804">Ubuntu18.04</h2>
+<p>-Ubuntu Linux systems with a high user base are both user interface and hardware compatible</p>
+<ul>
+<li>Both K8S and K3S work well together</li>
+<li>The best area for Ubuntu to be used is the desktop operating system. Not the server operating system. Ubuntu consumes hundreds of megabytes of drivers and precious memory</li>
+</ul>
+<h1 id="finally">finally</h1>
+<p>If you find any problems with my article, please point out that I will fix them immediately.<br>
+I am also a beginner please forgive me.</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[K8S&K3S]comparison test First summarized]]></title>
         <id>https://HANXU2018.github.io/94QoMHeXs/</id>
@@ -670,325 +788,6 @@ wo~ it's a good test.</p>
 <li>The configuration of Docker Registry</li>
 </ol>
 <!-- more -->
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[[Docker Practical learning] 08 Docker Run Wordpress]]></title>
-        <id>https://HANXU2018.github.io/T-JYUS0LD/</id>
-        <link href="https://HANXU2018.github.io/T-JYUS0LD/">
-        </link>
-        <updated>2020-05-19T01:54:03.000Z</updated>
-        <summary type="html"><![CDATA[<p>I will add the previous content as soon as possible in the future.<br>
-Today, learn how dockerfile and docker work through the WordPress container.<br>
-I will record the following things</p>
-<ol>
-<li>WordPress installation and configuration</li>
-<li>Dockerfil write</li>
-<li>Dockerfil builds the image</li>
-</ol>
-<p>let't try!🙋‍♂</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>I will add the previous content as soon as possible in the future.<br>
-Today, learn how dockerfile and docker work through the WordPress container.<br>
-I will record the following things</p>
-<ol>
-<li>WordPress installation and configuration</li>
-<li>Dockerfil write</li>
-<li>Dockerfil builds the image</li>
-</ol>
-<p>let't try!🙋‍♂</p>
-<!-- more -->
-<h1 id="preparation-before-experiment">Preparation before experiment</h1>
-<ol>
-<li>Replace aliyun image in China to speed up</li>
-</ol>
-<pre><code>sudo vi /etc/docker/daemon.json
-</code></pre>
-<pre><code>{
- &quot;registry-mirrors&quot;: [&quot;https://n6syp70m.mirror.aliyuncs.com&quot;]
-}
-</code></pre>
-<ol start="2">
-<li>Restart docker service</li>
-</ol>
-<pre><code>sudo service docker restart
-</code></pre>
-<h1 id="commencement-of-operation">commencement of operation</h1>
-<ol>
-<li>
-<p>Analyze the environment required for the experiment</p>
-<ol>
-<li>Nginx provides access</li>
-<li>SSH for easy management</li>
-<li>PHP and mysql as dependencies</li>
-<li>Finally, install wordpress</li>
-</ol>
-</li>
-<li>
-<p>China docker image speed up</p>
-<ol>
-<li><code>RUN echo &quot;deb http://mirrors.cloud.aliyuncs.com/ubuntu/ trusty main universe&quot; &gt; /etc/apt/sources.list</code></li>
-<li>I use the online learning environment using image to mirrors.cloud.aliyuncs.com,but in our own device we should use mirrors.aliyun.com.</li>
-</ol>
-</li>
-<li>
-<p>Create Dockerfile</p>
-<ol>
-<li>
-<p>make a folder and create Dockerfile</p>
-<pre><code>$ mkdir wordpress
-$ cd wordpress
-$ touch Dockerfile
-</code></pre>
-</li>
-<li>
-<p>edit the Dockerfile</p>
-<pre><code>vim Dockerfile
-</code></pre>
-<p>The basic framework of previous studies</p>
-<pre><code># Version 0.1
-
-# basic image
-FROM ubuntu:14.04
-
-# MAINTAINER 
-MAINTAINER HANXU2018@HANXU2018.com
-
-# Command 
-RUN echo &quot;deb http://mirrors.cloud.aliyuncs.com/ubuntu/ trusty main universe&quot; &gt; /etc/apt/sources.list
-RUN apt-get -yqq update &amp;&amp; apt-get install -yqq supervisor &amp;&amp; apt-get clean
-
-# start command
-CMD [&quot;supervisord&quot;]
-</code></pre>
-<p>use Supervisord to start</p>
-</li>
-</ol>
-</li>
-<li>
-<p>complete Dockerfile</p>
-<ol>
-<li>Install dependencies
-<ol>
-<li>nginx system service</li>
-<li>php and mysql wordpress dependencies</li>
-</ol>
-</li>
-</ol>
-<pre><code>    RUN apt-get -yqq install nginx supervisor wget php5-fpm php5-mysql
-</code></pre>
-<ol start="2">
-<li>
-<p>Install Wordpress</p>
-<ol>
-<li>Create the directory for the installation<br>
-<code>RUN mkdir -p /var/www</code></li>
-<li>download and uzip<pre><code>ADD http://labfile.oss-cn-hangzhou-internal.aliyuncs.com/courses/498/wordpress-4.4.2.tar.gz /var/www/wordpress-4.4.2.tar.gz
-   RUN cd /var/www &amp;&amp; tar zxvf wordpress-4.4.2.tar.gz &amp;&amp; rm -rf wordpress-4.4.2.tar.gz
-   RUN chown -R www-data:www-data /var/www/wordpress
-</code></pre>
-</li>
-</ol>
-</li>
-<li>
-<p>Install SSH</p>
-<ol>
-<li>Install dependencies and SSH<br>
-<code>RUN apt-get install -y openssh-server openssh-client</code></li>
-<li>create Run directory<br>
-<code>RUN mkdir /var/run/sshd</code></li>
-<li>Configure password and allow remote login<pre><code>RUN echo 'root:shiyanlou' | chpasswd
-RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-</code></pre>
-</li>
-</ol>
-</li>
-<li>
-<p>Install Mysql</p>
-<ol>
-<li>config root password and install<pre><code>RUN echo &quot;mysql-server mysql-server/root_password password shiyanlou&quot; | debconf-set-selections
-RUN echo &quot;mysql-server mysql-server/root_password_again password shiyanlou&quot; | debconf-set-selections
-RUN apt-get  install -y mysql-server mysql-client
-</code></pre>
-</li>
-<li>create database for wordpress<br>
-<code>RUN service mysql start &amp;&amp; mysql -uroot -pshiyanlou -e &quot;create database wordpress;&quot;</code>.</li>
-</ol>
-</li>
-<li>
-<p>open 80 22 port</p>
-<ol>
-<li>80:web</li>
-<li>22:ssh</li>
-<li><code>EXPOSE 80 22</code></li>
-</ol>
-</li>
-<li>
-<p>config Supervisord</p>
-<ol>
-<li>
-<p><code>vim supervisord.conf</code> create conf</p>
-</li>
-<li>
-<pre><code>  [supervisord]
-    nodaemon=true
-
-    [program:php5-fpm]
-    command=/usr/sbin/php5-fpm -c /etc/php5/fpm
-    autorstart=true
-
-    [program:mysqld]
-    command=/usr/bin/mysqld_safe
-
-    [program:nginx]
-    command=/usr/sbin/nginx
-    autorstart=true
-
-    [program:ssh]
-    command=/usr/sbin/sshd -D
-</code></pre>
-</li>
-<li>
-<p>add Suervisord in Dockerfile</p>
-<ol>
-<li><code>COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf</code></li>
-</ol>
-</li>
-<li>
-<p>start Supervisord</p>
-<ol>
-<li><code>CMD [&quot;/usr/bin/supervisord&quot;]</code></li>
-</ol>
-</li>
-</ol>
-</li>
-<li>
-<p>config Nginx</p>
-<ol>
-<li>like config Supervisord <code>vim nginx-config</code></li>
-<li>
-<pre><code>
- server {
-     listen *:80;
-     server_name localhost;
-
-     root /var/www/wordpress;
-     index index.php;
-
-     location / {
-         try_files $uri $uri/ /index.php?$args;
-     }
-
-     location ~ \.php$ {
-         try_files $uri =404;
-         include fastcgi_params;
-         fastcgi_pass unix:/var/run/php5-fpm.sock;
-     }
- }
-</code></pre>
-</li>
-</ol>
-</li>
-<li>
-<p>WordPress config</p>
-<ol>
-<li>Use sed add this in Dockerfile<pre><code>RUN sed -i 's/database_name_here/wordpress/g' /var/www/wordpress/wp-config-sample.php
-RUN sed -i 's/username_here/root/g' /var/www/wordpress/wp-config-sample.php
-RUN sed -i 's/password_here/shiyanlou/g' /var/www/wordpress/wp-config-sample.php
-RUN mv /var/www/wordpress/wp-config-sample.php /var/www/wordpress/wp-config.php
-</code></pre>
-</li>
-</ol>
-</li>
-<li>
-<p>update the config file int Dockerfile</p>
-<ol>
-<li><code>COPY nginx-config /etc/nginx/sites-available/default</code></li>
-</ol>
-</li>
-</ol>
-</li>
-<li>
-<p>docker build</p>
-<ol>
-<li>befor build i show the complete Dockerfile</li>
-</ol>
-<pre><code>     # Version 0.1
-     FROM ubuntu:14.04
-
-     MAINTAINER HANXU2018@HANXU2018.com
-
-     RUN echo &quot;deb http://mirrors.cloud.aliyuncs.com/ubuntu/ trusty main universe&quot; &gt; /etc/apt/sources.list
-     RUN apt-get -yqq update
-     RUN apt-get -yqq install nginx supervisor wget php5-fpm php5-mysql
-     RUN echo &quot;daemon off;&quot; &gt;&gt; /etc/nginx/nginx.conf
-
-     RUN mkdir -p /var/www
-     ADD http://labfile.oss-cn-hangzhou-internal.aliyuncs.com/courses/498/wordpress-4.4.2.tar.gz /var/www/wordpress-4.4.2.tar.gz
-     RUN cd /var/www &amp;&amp; tar zxvf wordpress-4.4.2.tar.gz &amp;&amp; rm -rf wordpress-4.4.2.tar.gz
-     RUN chown -R www-data:www-data /var/www/wordpress
-
-     RUN mkdir /var/run/sshd
-     RUN apt-get install -yqq openssh-server openssh-client
-     RUN echo 'root:shiyanlou' | chpasswd
-     RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-
-     RUN echo &quot;mysql-server mysql-server/root_password password shiyanlou&quot; | debconf-set-selections
-     RUN echo &quot;mysql-server mysql-server/root_password_again password shiyanlou&quot; | debconf-set-selections
-     RUN apt-get  install -yqq mysql-server mysql-client
-
-     EXPOSE 80 22
-
-     COPY nginx-config /etc/nginx/sites-available/default
-     COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-     RUN service mysql start &amp;&amp; mysql -uroot -pshiyanlou -e &quot;create database wordpress;&quot;
-     RUN sed -i 's/database_name_here/wordpress/g' /var/www/wordpress/wp-config-sample.php
-     RUN sed -i 's/username_here/root/g' /var/www/wordpress/wp-config-sample.php
-     RUN sed -i 's/password_here/shiyanlou/g' /var/www/wordpress/wp-config-sample.php
-     RUN mv /var/www/wordpress/wp-config-sample.php /var/www/wordpress/wp-config.php
-
-     CMD [&quot;/usr/bin/supervisord&quot;]
-</code></pre>
-<ol start="2">
-<li>make sure you have Dockerfile nginx-config and supervisord.conf three fils</li>
-<li>docker build
-<ol>
-<li><code>docker build -t wordpress:0.2 /home/shiyanlou/wordpress/</code></li>
-</ol>
-</li>
-</ol>
-</li>
-<li>
-<p><code>docker images</code> can see the images we build just now.</p>
-</li>
-<li>
-<p>docker run for test</p>
-<ol>
-<li><code>docker run -d -p 80:80 --name wordpress wordpress:0.2</code></li>
-<li><code>docker container ls</code> can see the container we run</li>
-<li>vist the website 127.0.0.1/wp-admin/install.php on the browser. if success we will see the install pages.</li>
-</ol>
-</li>
-</ol>
-<h1 id="summary">summary</h1>
-<ol>
-<li>WordPress installation and configuration</li>
-<li>Dockerfil write</li>
-<li>Dockerfil builds the image<br>
-With the help of the learning website, my progress is very fast,This blog was also written with the help of a tutorial.Writing a blog felt like a lot of work, but I stuck with it.<br>
-My basic knowledge is still unfamiliar, so it will be difficult to do the experiment.<br>
-I will try to practice the basics as much as possible.<br>
-If you have any questions, please contact me.</li>
-</ol>
-<h1 id="contact">contact 🔗</h1>
-<p>My github is <a href="https://github.com/HANXU2018">@HANXU2018</a><br>
-My Chinese blog in CSDN site https://hanxu.blog.csdn.net/<br>
-✉️ google email h1076998404@Gmial.com<br>
-📪QQ mailbox can get my reply faster<br>
-1076998404@qq.com</p>
-<p>thanks<br>
-2020/5/19<br>
-🤝🤝🤝</p>
 ]]></content>
     </entry>
 </feed>
