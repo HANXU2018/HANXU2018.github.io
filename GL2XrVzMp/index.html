@@ -2,17 +2,17 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>[K8S&amp;K3S]Single node deployment for K8S | HANXU2018 blog</title>
+<title>[K8S&amp;K3S]Single node deployment for K3S | HANXU2018 blog</title>
 <link rel="shortcut icon" href="https://HANXU2018.github.io/favicon.ico?v=1595248656999">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://HANXU2018.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="[K8S&amp;K3S]Single node deployment for K8S | HANXU2018 blog - Atom Feed" href="https://HANXU2018.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="[K8S&amp;K3S]Single node deployment for K3S | HANXU2018 blog - Atom Feed" href="https://HANXU2018.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="Single node deployment for K8S
-The content of this experiment is the experiment of K8S deployment with kubeadm single no..." />
+    <meta name="description" content="Single node deployment for K3S
+The content of this experiment is the experiment of K3S deployment with kubeadm single no..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -79,22 +79,22 @@ The content of this experiment is the experiment of K8S deployment with kubeadm 
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              [K8S&amp;K3S]Single node deployment for K8S
+              [K8S&amp;K3S]Single node deployment for K3S
             </h2>
             <div class="post-info">
               <span>
-                2020-07-17
+                2020-07-20
               </span>
               <span>
-                5 min read
+                4 min read
               </span>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h1 id="single-node-deployment-for-k8s">Single node deployment for K8S</h1>
-<p>The content of this experiment is the experiment of K8S deployment with kubeadm single node in ubuntu18.04 2 core 4G memory environment</p>
+                <h1 id="single-node-deployment-for-k3s">Single node deployment for K3S</h1>
+<p>The content of this experiment is the experiment of K3S deployment with kubeadm single node in ubuntu18.04 2 core 4G memory environment</p>
 <h2 id="environment-introduction">Environment Introduction</h2>
 <h3 id="why-use-ubuntu">why use ubuntu ？</h3>
 <p>centos7 ubuntu18,.04 and win10 ,They are popular operating systems that support kbueadm</p>
@@ -111,17 +111,6 @@ Because the virtual machine environment for configuration upgrade cloning and se
 <h2 id="the-experimental-steps">The experimental steps</h2>
 <ol start="0">
 <li>Start experimenting from remote SSH entry to the server</li>
-<li>Close disk Swap to improve performance
-<ol>
-<li><code>Swapoff - a</code></li>
-</ol>
-</li>
-<li>Configure the network accordingly</li>
-</ol>
-<pre><code>Modprobe br_netfilter     
-Echo 1 &amp; gt;The/proc/sys/net/ipv4 / ip_forward 
-</code></pre>
-<ol start="3">
 <li>install docker
 <ol>
 <li>Due to the special network environment in China added by Aliyun, China's accelerated foreign users can not join -mirror Aliyun environment</li>
@@ -131,87 +120,59 @@ Echo 1 &amp; gt;The/proc/sys/net/ipv4 / ip_forward
 <pre><code>curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 </code></pre>
 <p>It is recommended that the virtual machine after docker installation should be used for snapshot storage in subsequent experiments. We can quickly clone the current environment<br>
-4.  Quickly deploy Kubernetes clusters using the Kubeadm tool provided by the Official Kubernetes<br>
-1.  Since the default pull mirror address k8S. gCR. IO cannot be accessed in China, the address of Aliyun mirror warehouse is specified here.<br>
-2.</p>
-<pre><code>kubeadm init  --cri-socket /run/containerd/containerd.sock --pod-network-cidr=10.244.0.0/16 --node-name=master --image-repository registry.cn-hangzhou.aliyuncs.com/google_containers --kubernetes-version v1.18.2
+2. Use the official script for the installation</p>
+<pre><code>curl -sfL https://get.k3s.io | sh -
+</code></pre>
+<p>K3s provides customized installation scripts for special environments for Chinese users</p>
+<pre><code>curl -sfL https://docs.rancher.cn/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn sh -
+</code></pre>
+<ol start="3">
+<li>K3s USES Containerd as the container by default.<br>
+For comparison with K8S, we used Docker</li>
+</ol>
+<p>After installation, we need to adjust K3S 'service profile to switch K3S' default container engine from Containerd to Docker.</p>
+<pre><code>vim /etc/systemd/system/multi-user.target.wants/k3s.service
+</code></pre>
+<p>Here, we need to modify the value of ExecStart and change it to:</p>
+<pre><code>/usr/local/bin/k3s server --docker --no-deploy traefik
+</code></pre>
+<ol start="4">
+<li>Save the exit and execute the command to reload the new service configuration file</li>
+</ol>
+<pre><code>   systemctl daemon-reload
+</code></pre>
+<p>Restart k3s</p>
+<pre><code>service k3s restart
 </code></pre>
 <ol start="5">
-<li>After waiting for some time, the K8S cluster has been successfully deployed and I still need to do some configuration before the deployment is officially successful</li>
+<li>Verify that the K3S cluster is ready</li>
 </ol>
-<pre><code>rm -rf $HOME/.kube
-mkdir -p $HOME/.kube
-cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-chown $(id -u):$(id -g) $HOME/.kube/config
+<pre><code>   k3s kubectl get node
 </code></pre>
-<p>The configuration file is placed in the Kube /config folder for us to modify the configuration later<br>
-6. Mark the primary node as available for POD scheduling</p>
-<pre><code>Kubectl taint nodes master node - role. Kubernetes. IO/master -
+<p>if it is success we will see ready</p>
+<pre><code>NAME                  STATUS   ROLES    AGE     VERSION
+k3s01.ilemonrain.io   Ready    &lt;none&gt;   3m34s   v1.14.1-k3s.4
 </code></pre>
-<ol start="7">
-<li>Install the Flannel Network plug-in</li>
-</ol>
-<pre><code>Kubectl create -f/share/lesson # / kubernetes/kube - flannel. Yml
-</code></pre>
-<ol start="8">
-<li>Verify that THE POD is working within the cluster<br>
-<code>Kubectl get Po - A</code><br>
-At this point we have successfully configured a single-node test environment</li>
-</ol>
-<pre><code>NAMESPACE     NAME                             READY   STATUS    RESTARTS   AGE
-kube-system   coredns-546565776c-4k6cn         1/1     Running   0          6m16s
-kube-system   coredns-546565776c-sdd4n         1/1     Running   1          6m16s
-kube-system   etcd-master                      1/1     Running   0          6m25s
-kube-system   kube-apiserver-master            1/1     Running   0          6m25s
-kube-system   kube-controller-manager-master   1/1     Running   0          6m25s
-kube-system   kube-flannel-ds-amd64-glzlx      1/1     Running   0          54s
-kube-system   kube-proxy-gzkbf                 1/1     Running   0          6m17s
-kube-system   kube-scheduler-master            1/1     Running   0          6m25s
-</code></pre>
-<ol start="9">
-<li>Validation node<br>
+<p>Then, K3S cluster startup is successful.</p>
+<ol start="6">
+<li>K3s can directly use the kubectl command in K8S<br>
 <code>kubectl get node</code></li>
 </ol>
-<pre><code>NAME     STATUS   ROLES    AGE     VERSION
-master   Ready    master   6m40s   v1.18.2
+<pre><code>NAME                  STATUS   ROLES    AGE     VERSION
+k3s01.ilemonrain.io   Ready    &lt;none&gt;   3m34s   v1.14.1-k3s.4
 </code></pre>
 <h2 id="the-experimental-conclusion">The experimental conclusion</h2>
-<p>Isn't it easy to deploy a single-node K8S<br>
-I met some problems during the experiment</p>
-<ol>
-<li>
-<p>Docker installation problems</p>
-<ol>
-<li>The Chinese environment USES Sudo Install Docker-CE too slowly =&gt; Switch to the official installation script Support to reference Chinese mirror source for acceleration effect</li>
-</ol>
-</li>
-<li>
-<p>K8s failed to pull docker image =&gt; Google servers are not accessible in China Configuring China Aliyun's mirror site in Hangzhou, Zhejiang, China solves this problem</p>
-</li>
-<li>
-<p>Kubeadm init failed</p>
-<ol>
-<li>Did not close disk SWAP</li>
-</ol>
-</li>
-<li>
-<p>Unable to operate with Kubectl</p>
-<ol>
-<li>The primary node is not marked as available for POD scheduling</li>
-<li>The Flannel network plug-in was not installed</li>
-</ol>
-</li>
-</ol>
-<p>It may seem simple, but the first time you use it, you have a lot of problems<br>
-The next experiment will make it easier and faster to deploy K3S in the same<br>
-environment with a one-click setup script from rancher K3s</p>
-<p>The experience of a single node is not that different<br>
-Subsequent multi-node deployments will be more complex and the k3S and K8S installation experiences will be more different</p>
+<p>###　The installation script is very slow<br>
+use Chinese mirror that is so fast for me</p>
+<pre><code>curl -sfL https://docs.rancher.cn/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn sh -
+</code></pre>
+<h3 id="the-default-use-of-containerd-does-not-pull-the-image">The default use of Containerd does not pull the image</h3>
+<p>Docker can be used to configure The Chinese environment mirror site</p>
 
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
-<li><a href="#single-node-deployment-for-k8s">Single node deployment for K8S</a>
+<li><a href="#single-node-deployment-for-k3s">Single node deployment for K3S</a>
 <ul>
 <li><a href="#environment-introduction">Environment Introduction</a>
 <ul>
@@ -221,7 +182,11 @@ Subsequent multi-node deployments will be more complex and the k3S and K8S insta
 </ul>
 </li>
 <li><a href="#the-experimental-steps">The experimental steps</a></li>
-<li><a href="#the-experimental-conclusion">The experimental conclusion</a></li>
+<li><a href="#the-experimental-conclusion">The experimental conclusion</a>
+<ul>
+<li><a href="#the-default-use-of-containerd-does-not-pull-the-image">The default use of Containerd does not pull the image</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -234,9 +199,9 @@ Subsequent multi-node deployments will be more complex and the k3S and K8S insta
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://HANXU2018.github.io/5MuoKdzEN/">
+            <a href="https://HANXU2018.github.io/cz1lO8Mof/">
               <h3 class="post-title">
-                [K8S&amp;K3S]The establishment of experimental environment
+                [K8S&amp;K3S]Single node deployment for K8S
               </h3>
             </a>
           </div>
