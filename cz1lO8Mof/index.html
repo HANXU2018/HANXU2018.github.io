@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>[K8S&amp;K3S]Single node deployment for K8S | HANXU2018 blog</title>
-<link rel="shortcut icon" href="https://HANXU2018.github.io/favicon.ico?v=1595398508825">
+<link rel="shortcut icon" href="https://HANXU2018.github.io/favicon.ico?v=1595398896086">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://HANXU2018.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="[K8S&amp;K3S]Single node deployment for K8S | HANXU2018 blog - Atom Feed" href="https://HANXU2018.github.io/atom.xml">
@@ -22,7 +22,7 @@ The content of this experiment is the experiment of K8S deployment with kubeadm 
       <div class="main-content">
         <div class="site-header">
   <a href="https://HANXU2018.github.io">
-  <img class="avatar" src="https://HANXU2018.github.io/images/avatar.png?v=1595398508825" alt="">
+  <img class="avatar" src="https://HANXU2018.github.io/images/avatar.png?v=1595398896086" alt="">
   </a>
   <h1 class="site-title">
     HANXU2018 blog
@@ -119,7 +119,7 @@ Because the virtual machine environment for configuration upgrade cloning and se
 <li>Configure the network accordingly</li>
 </ol>
 <pre><code>modprobe br_netfilter     
-echo 1 &gt; /proc/sys/net/ipv4 / ip_forward 
+echo 1 &gt; /proc/sys/net/ipv4/ip_forward 
 </code></pre>
 <ol start="3">
 <li>install docker

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://HANXU2018.github.io</id>
     <title>HANXU2018 blog</title>
-    <updated>2020-07-22T06:15:12.383Z</updated>
+    <updated>2020-07-22T06:21:38.244Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://HANXU2018.github.io"/>
     <link rel="self" href="https://HANXU2018.github.io/atom.xml"/>
@@ -125,7 +125,7 @@ Because the virtual machine environment for configuration upgrade cloning and se
 <li>Configure the network accordingly</li>
 </ol>
 <pre><code>modprobe br_netfilter     
-echo 1 &gt; /proc/sys/net/ipv4 / ip_forward 
+echo 1 &gt; /proc/sys/net/ipv4/ip_forward 
 </code></pre>
 <ol start="3">
 <li>install docker
