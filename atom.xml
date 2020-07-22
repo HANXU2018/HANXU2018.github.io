@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://HANXU2018.github.io</id>
     <title>HANXU2018 blog</title>
-    <updated>2020-07-20T17:01:27.679Z</updated>
+    <updated>2020-07-22T06:15:12.383Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://HANXU2018.github.io"/>
     <link rel="self" href="https://HANXU2018.github.io/atom.xml"/>
@@ -119,13 +119,13 @@ Because the virtual machine environment for configuration upgrade cloning and se
 <li>Start experimenting from remote SSH entry to the server</li>
 <li>Close disk Swap to improve performance
 <ol>
-<li><code>Swapoff - a</code></li>
+<li><code>swapoff - a</code></li>
 </ol>
 </li>
 <li>Configure the network accordingly</li>
 </ol>
-<pre><code>Modprobe br_netfilter     
-Echo 1 &amp; gt;The/proc/sys/net/ipv4 / ip_forward 
+<pre><code>modprobe br_netfilter     
+echo 1 &gt; /proc/sys/net/ipv4 / ip_forward 
 </code></pre>
 <ol start="3">
 <li>install docker
@@ -134,7 +134,7 @@ Echo 1 &amp; gt;The/proc/sys/net/ipv4 / ip_forward
 </ol>
 </li>
 </ol>
-<pre><code>curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+<pre><code>curl -fssl https://get.docker.com | bash -s docker --mirror aliyun
 </code></pre>
 <p>It is recommended that the virtual machine after docker installation should be used for snapshot storage in subsequent experiments. We can quickly clone the current environment<br>
 4.  Quickly deploy Kubernetes clusters using the Kubeadm tool provided by the Official Kubernetes<br>
@@ -152,16 +152,16 @@ chown $(id -u):$(id -g) $HOME/.kube/config
 </code></pre>
 <p>The configuration file is placed in the Kube /config folder for us to modify the configuration later<br>
 6. Mark the primary node as available for POD scheduling</p>
-<pre><code>Kubectl taint nodes master node - role. Kubernetes. IO/master -
+<pre><code>kubectl taint nodes master node - role. Kubernetes. io/master -
 </code></pre>
 <ol start="7">
 <li>Install the Flannel Network plug-in</li>
 </ol>
-<pre><code>Kubectl create -f/share/lesson # / kubernetes/kube - flannel. Yml
+<pre><code>kubectl create -f/share/lesson/ kubernetes/kube - flannel. Yml
 </code></pre>
 <ol start="8">
 <li>Verify that THE POD is working within the cluster<br>
-<code>Kubectl get Po - A</code><br>
+<code>kubectl get Po - a</code><br>
 At this point we have successfully configured a single-node test environment</li>
 </ol>
 <pre><code>NAMESPACE     NAME                             READY   STATUS    RESTARTS   AGE
