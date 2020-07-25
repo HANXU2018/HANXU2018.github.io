@@ -2,19 +2,18 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>AboutMe | HANXU2018 blog</title>
+<title>[K8S&amp;K3S]Multi-node deployment for K8S | HANXU2018 blog</title>
 <link rel="shortcut icon" href="https://HANXU2018.github.io/favicon.ico?v=1595701193710">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://HANXU2018.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="AboutMe | HANXU2018 blog - Atom Feed" href="https://HANXU2018.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="[K8S&amp;K3S]Multi-node deployment for K8S | HANXU2018 blog - Atom Feed" href="https://HANXU2018.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="😁My name is han xu.
-I am a student of hebei university in China.🇨🇳
-Is an information security sophomore undergraduate..." />
-    <meta name="keywords" content="AboutMe" />
+    <meta name="description" content="Multi-node deployment for K8S
+The content of this experiment is the multi-node K8S deployment experiment under the ubunt..." />
+    <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -80,69 +79,69 @@ Is an information security sophomore undergraduate..." />
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              AboutMe
+              [K8S&amp;K3S]Multi-node deployment for K8S
             </h2>
             <div class="post-info">
               <span>
-                2020-05-07
+                2020-07-26
               </span>
               <span>
-                3 min read
+                2 min read
               </span>
-              
-                <a href="https://HANXU2018.github.io/aQN_bipWH/" class="post-tag">
-                  # AboutMe
-                </a>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>😁My name is han xu.<br>
-I am a student of hebei university in China.🇨🇳<br>
-Is an information security sophomore undergraduate (as of May 2020📅).</p>
-<p>I'm interested in the open source culture of the github community.<br>
-In order to record my learning process, I started this blog.<br>
-I like to use LeetCode for code practice every day.<br>
-At present, I mainly study the background development knowledge of Java.<br>
-I taught myself basic C++ syntax to learn data structures<br>
-I have learned C language and python language in school courses and have a little understanding of js<br>
-Currently studying database courses, MySQL is the database environment I am using.<br>
-Participated in the small program cloud development evangelist activity held by tencent community, tried to develop a simple serverless WeChat small program.<br>
-Currently, I use lenovo Y700P to run win10 for daily learning,<br>
-but I am interested in the cool and free Linux desktop environment.<br>
-I tried to install arch on ubuntu18.04 desktop but failed.<br>
-Manjaro felt that it was suitable for me,<br>
-but I finally gave up due to incompatible hardware conditions.<br>
-In a word, I have tried a lot of computer technology,<br>
-but I don't have a deep understanding of it,<br>
-which is both my weakness and my strength.</p>
-<p>I am curious about new technologies and interested in open source culture.<br>
-I have been involved in programming for less than two years and my technical foundation is still very weak and there is still a long way to go.<br>
-I look forward to seeing everyone here continue to learn with me and keep exploring and pursuing the future.<br>
-This is the first time to write a blog in English.<br>
-If you have any questions, please forgive me.<br>
-Your correction is welcome.<br>
-Now I'm learning the springboot framework to develop front and rear split web pages<br>
-Please feel free to contact me if you have any questions</p>
-<p>🔗<br>
-My github is <a href="https://github.com/HANXU2018">@HANXU2018</a><br>
-My Chinese blog in CSDN site https://hanxu.blog.csdn.net/<br>
-✉️ google email h1076998404@Gmial.com<br>
-📪QQ mailbox can get my reply faster<br>
-1076998404@qq.com</p>
-<p>thanks<br>
-2020/5/7<br>
-🤝🤝🤝</p>
+                <h1 id="multi-node-deployment-for-k8s">Multi-node deployment for K8S</h1>
+<p>The content of this experiment is the multi-node K8S deployment experiment under the ubuntu18.04 2 core 4G memory environment<br>
+I'm just going to use three servers as one master node and two slave nodes.</p>
+<h2 id="environment-introduction">Environment Introduction</h2>
+<h3 id="why-use-ubuntu">why use ubuntu ？</h3>
+<p>centos7 ubuntu18,.04 and win10 ,They are popular operating systems that support kbueadm</p>
+<p>Our next experiment is a test under the same environment as K3S<br>
+K3s is not perfect for Centos and does not support Win10<br>
+so we use ubuntu18.04 to test.</p>
+<h3 id="why-use-2core-and-4g-memory-run-the-configure">why use ２core and 4G memory Run the configure ？</h3>
+<p>Because this is the limit min configure of one single k8s requirements.<br>
+But the k3s is requeirement 1core and 512MB to run.</p>
+<h3 id="environment-construction">Environment construction</h3>
+<p>I use vmvare in a Windows10 environment<br>
+Because the virtual machine environment for configuration upgrade cloning and server rollback is very convenient compared to the physical computer is more suitable for rapid experiments.</p>
+<p>Of course, if you have the ability or try to choose a physical machine for the experiment</p>
+<h2 id="the-experimental-steps">The experimental steps</h2>
 
               </div>
               <div class="toc-container">
-                
+                <ul class="markdownIt-TOC">
+<li><a href="#multi-node-deployment-for-k8s">Multi-node deployment for K8S</a>
+<ul>
+<li><a href="#environment-introduction">Environment Introduction</a>
+<ul>
+<li><a href="#why-use-ubuntu">why use ubuntu ？</a></li>
+<li><a href="#why-use-2core-and-4g-memory-run-the-configure">why use ２core and 4G memory Run the configure ？</a></li>
+<li><a href="#environment-construction">Environment construction</a></li>
+</ul>
+</li>
+<li><a href="#the-experimental-steps">The experimental steps</a></li>
+</ul>
+</li>
+</ul>
+
               </div>
             </div>
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://HANXU2018.github.io/2pNQsixue/">
+              <h3 class="post-title">
+                [K8S&amp;K3S]Multi-node deployment for K3S
+              </h3>
+            </a>
+          </div>
         
 
         

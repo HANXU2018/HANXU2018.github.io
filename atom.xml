@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://HANXU2018.github.io</id>
     <title>HANXU2018 blog</title>
-    <updated>2020-07-25T17:33:04.700Z</updated>
+    <updated>2020-07-25T18:19:58.534Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://HANXU2018.github.io"/>
     <link rel="self" href="https://HANXU2018.github.io/atom.xml"/>
@@ -10,6 +10,31 @@
     <logo>https://HANXU2018.github.io/images/avatar.png</logo>
     <icon>https://HANXU2018.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, HANXU2018 blog</rights>
+    <entry>
+        <title type="html"><![CDATA[[K8S&K3S]Multi-node deployment for K8S]]></title>
+        <id>https://HANXU2018.github.io/RZiPSIQP1/</id>
+        <link href="https://HANXU2018.github.io/RZiPSIQP1/">
+        </link>
+        <updated>2020-07-25T17:37:00.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="multi-node-deployment-for-k8s">Multi-node deployment for K8S</h1>
+<p>The content of this experiment is the multi-node K8S deployment experiment under the ubuntu18.04 2 core 4G memory environment<br>
+I'm just going to use three servers as one master node and two slave nodes.</p>
+<h2 id="environment-introduction">Environment Introduction</h2>
+<h3 id="why-use-ubuntu">why use ubuntu ？</h3>
+<p>centos7 ubuntu18,.04 and win10 ,They are popular operating systems that support kbueadm</p>
+<p>Our next experiment is a test under the same environment as K3S<br>
+K3s is not perfect for Centos and does not support Win10<br>
+so we use ubuntu18.04 to test.</p>
+<h3 id="why-use-2core-and-4g-memory-run-the-configure">why use ２core and 4G memory Run the configure ？</h3>
+<p>Because this is the limit min configure of one single k8s requirements.<br>
+But the k3s is requeirement 1core and 512MB to run.</p>
+<h3 id="environment-construction">Environment construction</h3>
+<p>I use vmvare in a Windows10 environment<br>
+Because the virtual machine environment for configuration upgrade cloning and server rollback is very convenient compared to the physical computer is more suitable for rapid experiments.</p>
+<p>Of course, if you have the ability or try to choose a physical machine for the experiment</p>
+<h2 id="the-experimental-steps">The experimental steps</h2>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[K8S&K3S]Multi-node deployment for K3S]]></title>
         <id>https://HANXU2018.github.io/2pNQsixue/</id>
@@ -759,91 +784,6 @@ My 8G device does not meet the minimum configuration requirements<br>
 So I bought another 8 gigabyte memory stick on the shopping website today.<br>
 Thanks for the quick logistics Goods purchased online can be received within 24 hours.</p>
 <p>I think upgrading the equipment will be of great help to my study.</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Docker Install Tomcat]]></title>
-        <id>https://HANXU2018.github.io/8Yn9NSlmJ/</id>
-        <link href="https://HANXU2018.github.io/8Yn9NSlmJ/">
-        </link>
-        <updated>2020-05-23T15:12:24.000Z</updated>
-        <summary type="html"><![CDATA[<p>In the past study，I know two ways to install Tomcat with Docker</p>
-<ol>
-<li>
-<p>docker pull tomcat</p>
-<ul>
-<li>that can find the Tomcat image on Docker Hub</li>
-</ul>
-</li>
-<li>
-<p>Build with Dockerfile</p>
-<ul>
-<li>I'm not very good at it but this is important.I'll probably write a separate blog about this approach</li>
-</ul>
-</li>
-</ol>
-]]></summary>
-        <content type="html"><![CDATA[<p>In the past study，I know two ways to install Tomcat with Docker</p>
-<ol>
-<li>
-<p>docker pull tomcat</p>
-<ul>
-<li>that can find the Tomcat image on Docker Hub</li>
-</ul>
-</li>
-<li>
-<p>Build with Dockerfile</p>
-<ul>
-<li>I'm not very good at it but this is important.I'll probably write a separate blog about this approach</li>
-</ul>
-</li>
-</ol>
-<!-- more -->
-<h1 id="i-will-record-the-docker-install-tomcat-with-dockerhub-in-this-time">I will record the docker install tomcat with dockerhub in this time.</h1>
-<h2 id="1search-the-image-in-docker-hub">1.search the image in docker hub</h2>
-<p>https://hub.docker.com/_/tomcat<br>
-i can see the commant <code>docker pull tomcat</code><br>
-Copy and paste to pull this image</p>
-<ul>
-<li><code>docker search tomcat</code> that can search the version that can install in our device.</li>
-</ul>
-<h2 id="docker-pull-tomcat">docker pull tomcat</h2>
-<p>i use this to pull the image from dockerhub<br>
-when finished <code>docker pull tomcat</code> can see the images that have been downloaded</p>
-<ul>
-<li>In China the average home already has 100 megabits of Internet speed,but the speed of visiting foreign websites is always extremely slow.</li>
-<li>thanks for the Chinese Unicorn company like alibaba that can let every one to use their mirrors to speed up.</li>
-</ul>
-<h2 id="use-tomcat-images">Use tomcat images</h2>
-<p>run this comman</p>
-<pre><code>docker run --name tomcat -p 8080:8080 -v /test:/usr/local/tomcat/webapps/test -d tomcat  
-</code></pre>
-<p>because of i use WIN10 this time i want to share the folder test in tomcat so i do this , but if we use linux we can user this</p>
-<pre><code>docker run --name tomcat -p 8080:8080 -v $PWD/test:/usr/local/tomcat/webapps/test -d tomcat  
-</code></pre>
-<ol>
-<li>-p 8080:8080 Map port 8080 of the container to port 8080 of the host.</li>
-<li>-v $PWD/test:/usr/local/tomcat/webapps/test Mount the test in the current directory on the host to the container's /test</li>
-</ol>
-<h2 id="docker-ps">docker ps</h2>
-<p>Check for success,if success ,we will see the tomcat container running.</p>
-<h2 id="visit-the-localhost8080-check-the-tomcat-running-condition">visit the localhost:8080 check the tomcat running condition</h2>
-<p>if can you see someting about tomcat on website that you run successfuly.</p>
-<h2 id="some-of-the-problems-i-had">Some of the problems I had</h2>
-<p>when i visit the 8080 ,A 404 error occurred.But I realized that tomcat was running successfully.<br>
-when i use <code>docker exec -it 68c241f24239 /bin/bash</code><br>
-Enter the tomcat container<br>
-use <code>ls -l</code><br>
-see that has two folders webapps and webapps.dist<br>
-<code>cd webapps</code> open this folder use <code>ls -l</code> see that it'a empty folder<br>
-<code>cd ../webapps.dist</code> change to this folder taht <code>ls -l</code><br>
-see the Root and other files in this folder<br>
-The tomcat default welcome page is actually placed in the path.<br>
-For demonstration purposes i use <code>mv Root ../webapps</code><br>
-Move the files from the default welcome screen to webapps<br>
-then vist the <code>localhost:8080</code> can see the welcome page</p>
-<p>The good news is that I learned the simple principles of tomcat when I was studying the Java web.<br>
-Otherwise it will take more time to deal with the problem.</p>
 ]]></content>
     </entry>
 </feed>
