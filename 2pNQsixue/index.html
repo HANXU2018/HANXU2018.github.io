@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>[K8S&amp;K3S]Multi-node deployment for K3S | HANXU2018 blog</title>
-<link rel="shortcut icon" href="https://HANXU2018.github.io/favicon.ico?v=1595662046842">
+<link rel="shortcut icon" href="https://HANXU2018.github.io/favicon.ico?v=1595698381759">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://HANXU2018.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="[K8S&amp;K3S]Multi-node deployment for K3S | HANXU2018 blog - Atom Feed" href="https://HANXU2018.github.io/atom.xml">
@@ -22,7 +22,7 @@ The content of this experiment is the multi-node K3S deployment experiment under
       <div class="main-content">
         <div class="site-header">
   <a href="https://HANXU2018.github.io">
-  <img class="avatar" src="https://HANXU2018.github.io/images/avatar.png?v=1595662046842" alt="">
+  <img class="avatar" src="https://HANXU2018.github.io/images/avatar.png?v=1595698381759" alt="">
   </a>
   <h1 class="site-title">
     HANXU2018 blog
@@ -256,12 +256,13 @@ We check in the master node</p>
 <pre><code>k3s kubectl get nodes
 </code></pre>
 <h2 id="the-experimental-conclusion">The experimental conclusion</h2>
-<p>###　The installation script is very slow<br>
-use Chinese mirror that is so fast for me</p>
-<pre><code>curl -sfL https://docs.rancher.cn/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn sh -
-</code></pre>
-<h3 id="the-default-use-of-containerd-does-not-pull-the-image">The default use of Containerd does not pull the image</h3>
-<p>Docker can be used to configure The Chinese environment mirror site</p>
+<p>Multi-node deployment of K3S is quite simple compared to single-node deployment</p>
+<p>Just two more parts of the binding Token and changing roles<br>
+For me, it's easy and quick to do</p>
+<p>The multi-node deployment of k8S is described later<br>
+You actually use token for binding but with a few different Settings</p>
+<p>The only problem I found was that I didn't find anything like the official k3S one-click install script</p>
+<p>I think that's what makes the K8S Deployment  more complicated</p>
 
               </div>
               <div class="toc-container">
@@ -276,11 +277,7 @@ use Chinese mirror that is so fast for me</p>
 </ul>
 </li>
 <li><a href="#the-experimental-steps">The experimental steps</a></li>
-<li><a href="#the-experimental-conclusion">The experimental conclusion</a>
-<ul>
-<li><a href="#the-default-use-of-containerd-does-not-pull-the-image">The default use of Containerd does not pull the image</a></li>
-</ul>
-</li>
+<li><a href="#the-experimental-conclusion">The experimental conclusion</a></li>
 </ul>
 </li>
 </ul>

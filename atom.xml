@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://HANXU2018.github.io</id>
     <title>HANXU2018 blog</title>
-    <updated>2020-07-25T07:27:29.424Z</updated>
+    <updated>2020-07-25T17:33:04.700Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://HANXU2018.github.io"/>
     <link rel="self" href="https://HANXU2018.github.io/atom.xml"/>
@@ -179,12 +179,13 @@ We check in the master node</p>
 <pre><code>k3s kubectl get nodes
 </code></pre>
 <h2 id="the-experimental-conclusion">The experimental conclusion</h2>
-<p>###　The installation script is very slow<br>
-use Chinese mirror that is so fast for me</p>
-<pre><code>curl -sfL https://docs.rancher.cn/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn sh -
-</code></pre>
-<h3 id="the-default-use-of-containerd-does-not-pull-the-image">The default use of Containerd does not pull the image</h3>
-<p>Docker can be used to configure The Chinese environment mirror site</p>
+<p>Multi-node deployment of K3S is quite simple compared to single-node deployment</p>
+<p>Just two more parts of the binding Token and changing roles<br>
+For me, it's easy and quick to do</p>
+<p>The multi-node deployment of k8S is described later<br>
+You actually use token for binding but with a few different Settings</p>
+<p>The only problem I found was that I didn't find anything like the official k3S one-click install script</p>
+<p>I think that's what makes the K8S Deployment  more complicated</p>
 ]]></content>
     </entry>
     <entry>
