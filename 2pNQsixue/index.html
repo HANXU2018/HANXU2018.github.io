@@ -2,17 +2,17 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>[K8S&amp;K3S]Single node deployment for K3S | HANXU2018 blog</title>
+<title>[K8S&amp;K3S]Multi-node deployment for K3S | HANXU2018 blog</title>
 <link rel="shortcut icon" href="https://HANXU2018.github.io/favicon.ico?v=1595662046842">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://HANXU2018.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="[K8S&amp;K3S]Single node deployment for K3S | HANXU2018 blog - Atom Feed" href="https://HANXU2018.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="[K8S&amp;K3S]Multi-node deployment for K3S | HANXU2018 blog - Atom Feed" href="https://HANXU2018.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="Single node deployment for K3S
-The content of this experiment is the experiment of K3S deployment with kubeadm single no..." />
+    <meta name="description" content="Multi-node deployment for K3S
+The content of this experiment is the multi-node K3S deployment experiment under the ubunt..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -79,22 +79,23 @@ The content of this experiment is the experiment of K3S deployment with kubeadm 
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              [K8S&amp;K3S]Single node deployment for K3S
+              [K8S&amp;K3S]Multi-node deployment for K3S
             </h2>
             <div class="post-info">
               <span>
-                2020-07-20
+                2020-07-25
               </span>
               <span>
-                4 min read
+                6 min read
               </span>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h1 id="single-node-deployment-for-k3s">Single node deployment for K3S</h1>
-<p>The content of this experiment is the experiment of K3S deployment with kubeadm single node in ubuntu18.04 2 core 4G memory environment</p>
+                <h1 id="multi-node-deployment-for-k3s">Multi-node deployment for K3S</h1>
+<p>The content of this experiment is the multi-node K3S deployment experiment under the ubuntu18.04 2 core 4G memory environment<br>
+I'm just going to use three servers as one master node and two slave nodes.</p>
 <h2 id="environment-introduction">Environment Introduction</h2>
 <h3 id="why-use-ubuntu">why use ubuntu ？</h3>
 <p>centos7 ubuntu18,.04 and win10 ,They are popular operating systems that support kbueadm</p>
@@ -109,7 +110,7 @@ But the k3s is requeirement 1core and 512MB to run.</p>
 Because the virtual machine environment for configuration upgrade cloning and server rollback is very convenient compared to the physical computer is more suitable for rapid experiments.</p>
 <p>Of course, if you have the ability or try to choose a physical machine for the experiment</p>
 <h2 id="the-experimental-steps">The experimental steps</h2>
-<ol start="0">
+<ol>
 <li>Start experimenting from remote SSH entry to the server</li>
 <li>install docker
 <ol>
@@ -161,6 +162,99 @@ k3s01.ilemonrain.io   Ready    &lt;none&gt;   3m34s   v1.14.1-k3s.4
 <pre><code>NAME                  STATUS   ROLES    AGE     VERSION
 k3s01.ilemonrain.io   Ready    &lt;none&gt;   3m34s   v1.14.1-k3s.4
 </code></pre>
+<ol start="7">
+<li>Repeat the steps above to deploy three servers<br>
+For the next two deployed servers, we treat it as a worker node<br>
+Stop the current K3S process with the command</li>
+</ol>
+<pre><code>service k3s stop
+</code></pre>
+<ol start="8">
+<li>The first node is the master node.<br>
+Execute the following command to get Token for registering cluster members</li>
+</ol>
+<pre><code>cat /var/lib/rancher/k3s/server/node-token
+</code></pre>
+<p>This string helps us to connect working nodes quickly<br>
+We also need to know the IP address of the master node</p>
+<p>If you are installing on a physical machine you can get the IP address directly by doing so</p>
+<pre><code>curl ip.sb
+</code></pre>
+<p>But I'm using a virtual machine so I need to get the Intranet IP</p>
+<pre><code>ifconfig -a 
+</code></pre>
+<ol start="9">
+<li>The Worker node registers the cluster<br>
+Run this command for registration on the node where we just shut down k3S service</li>
+</ol>
+<pre><code>k3s agent --server https://[master IP]:6443 --token [Token]
+</code></pre>
+<ul>
+<li>IP replacement [Master IP] obtained in the previous step</li>
+<li>Token replacement [Token] obtained in the previous step</li>
+</ul>
+<ol start="9">
+<li>Let's go to the master node and see what happens</li>
+</ol>
+<pre><code>k3s kubectl get nodes
+</code></pre>
+<p>The output is as follows</p>
+<pre><code>NAME STATUS ROLES AGE VERSION
+server01 Ready master 18m v1.14.5-k3s.1
+server02 Ready worker 60s v1.14.5-k3s.1
+server03 Ready worker 60s v1.14.5-k3s.1
+</code></pre>
+<ol start="10">
+<li>The worker node is not fully installed. We still need to make the final modifications</li>
+</ol>
+<p>The following operations are performed on the Worker node<br>
+Ctrl+C terminates the process</p>
+<pre><code>vim /etc/systemd/system/k3s.service
+</code></pre>
+<p>The default file is as follows</p>
+<pre><code>[Unit]
+Description=Lightweight Kubernetes
+Documentation=https://k3s.io
+After=network-online.target
+
+[Service]
+Type=notify
+EnvironmentFile=/etc/systemd/system/k3s.service.env
+ExecStartPre=-/sbin/modprobe br_netfilter
+ExecStartPre=-/sbin/modprobe overlay
+ExecStart=/usr/local/bin/k3s \
+    server \
+
+KillMode=process
+Delegate=yes
+LimitNOFILE=infinity
+LimitNPROC=infinity
+LimitCORE=infinity
+TasksMax=infinity
+TimeoutStartSec=0
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>Let's modify this row</p>
+<pre><code>ExecStart=/usr/local/bin/k3s \
+    server \
+</code></pre>
+<p>This is the same substitution rule as in the previous step</p>
+<pre><code>ExecStart=/usr/local/bin/k3s agent --server https://[Master IP] :6443 --token [Token] 
+</code></pre>
+<p>Reload the configuration file after exit</p>
+<pre><code>systemctl daemon-reload
+</code></pre>
+<p>Restart K3S</p>
+<pre><code>service k3s restart
+</code></pre>
+<p>Now the operation of the worker node has been completed<br>
+We check in the master node</p>
+<pre><code>k3s kubectl get nodes
+</code></pre>
 <h2 id="the-experimental-conclusion">The experimental conclusion</h2>
 <p>###　The installation script is very slow<br>
 use Chinese mirror that is so fast for me</p>
@@ -172,7 +266,7 @@ use Chinese mirror that is so fast for me</p>
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
-<li><a href="#single-node-deployment-for-k3s">Single node deployment for K3S</a>
+<li><a href="#multi-node-deployment-for-k3s">Multi-node deployment for K3S</a>
 <ul>
 <li><a href="#environment-introduction">Environment Introduction</a>
 <ul>
@@ -199,9 +293,9 @@ use Chinese mirror that is so fast for me</p>
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://HANXU2018.github.io/cz1lO8Mof/">
+            <a href="https://HANXU2018.github.io/GL2XrVzMp/">
               <h3 class="post-title">
-                [K8S&amp;K3S]Single node deployment for K8S
+                [K8S&amp;K3S]Single node deployment for K3S
               </h3>
             </a>
           </div>
