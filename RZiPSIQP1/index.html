@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>[K8S&amp;K3S]Multi-node deployment for K8S | HANXU2018 blog</title>
-<link rel="shortcut icon" href="https://HANXU2018.github.io/favicon.ico?v=1595701193710">
+<link rel="shortcut icon" href="https://HANXU2018.github.io/favicon.ico?v=1595772549139">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://HANXU2018.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="[K8S&amp;K3S]Multi-node deployment for K8S | HANXU2018 blog - Atom Feed" href="https://HANXU2018.github.io/atom.xml">
@@ -22,7 +22,7 @@ The content of this experiment is the multi-node K8S deployment experiment under
       <div class="main-content">
         <div class="site-header">
   <a href="https://HANXU2018.github.io">
-  <img class="avatar" src="https://HANXU2018.github.io/images/avatar.png?v=1595701193710" alt="">
+  <img class="avatar" src="https://HANXU2018.github.io/images/avatar.png?v=1595772549139" alt="">
   </a>
   <h1 class="site-title">
     HANXU2018 blog
@@ -86,7 +86,7 @@ The content of this experiment is the multi-node K8S deployment experiment under
                 2020-07-26
               </span>
               <span>
-                2 min read
+                8 min read
               </span>
               
             </div>
@@ -110,6 +110,179 @@ But the k3s is requeirement 1core and 512MB to run.</p>
 Because the virtual machine environment for configuration upgrade cloning and server rollback is very convenient compared to the physical computer is more suitable for rapid experiments.</p>
 <p>Of course, if you have the ability or try to choose a physical machine for the experiment</p>
 <h2 id="the-experimental-steps">The experimental steps</h2>
+<ol>
+<li>Start experimenting from remote SSH entry to the server</li>
+<li>Close disk Swap to improve performance
+<ol>
+<li><code>swapoff - a</code></li>
+</ol>
+</li>
+<li>Configure the network accordingly</li>
+</ol>
+<pre><code>modprobe br_netfilter     
+echo 1 &gt; /proc/sys/net/ipv4/ip_forward 
+</code></pre>
+<ol start="3">
+<li>install docker
+<ol>
+<li>Due to the special network environment in China added by Aliyun, China's accelerated foreign users can not join -mirror Aliyun environment</li>
+</ol>
+</li>
+</ol>
+<pre><code>curl -fssl https://get.docker.com | bash -s docker --mirror aliyun
+</code></pre>
+<p>It is recommended that the virtual machine after docker installation should be used for snapshot storage in subsequent experiments. We can quickly clone the current environment<br>
+4. Because this is a multi-node installation, we set the name of each server to make it easier to use</p>
+<pre><code>hostnamectl set-hostname master
+</code></pre>
+<p>Modify the hosts<br>
+192.168.110.11 192.168.110.22 192.168.110.33 It's the server address I prepared</p>
+<pre><code>[root@master ~]# cat &gt;&gt; /etc/hosts &lt;&lt; EOF
+192.168.110.11 master
+192.168.110.22 node2
+192.168.110.33 node3
+EOF
+</code></pre>
+<p>Because I use the clone virtual machine environment<br>
+mac addresses need to be different<br>
+After searching for information, I found such a solution<br>
+apply only to VMware</p>
+<p><img src="https://HANXU2018.github.io/post-images/1595770390071.png" alt="" loading="lazy"><br>
+5. Modify the K8S kernel parameters</p>
+<pre><code> cat &lt;&lt;EOF &gt;  /etc/sysctl.d/k8s.conf
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+EOF
+sysctl -p /etc/sysctl.d/k8s.conf
+</code></pre>
+<ol start="6">
+<li>Modify cgroupdriver to eliminate alarms:</li>
+</ol>
+<blockquote>
+<p>[WARNING IsDockerSystemdCheck]: detected &quot;cgroupfs&quot; as the Docker cgroup driver. The recommended driver is &quot;systemd&quot;. Please follow the guide at https://kubernetes.io/docs/setup/cri/</p>
+</blockquote>
+<pre><code>more /etc/docker/daemon.json
+{
+  &quot;registry-mirrors&quot;: [&quot;https://v16stybc.mirror.aliyuncs.com&quot;],
+  &quot;exec-opts&quot;: [&quot;native.cgroupdriver=systemd&quot;]
+} 
+</code></pre>
+<p>Reload takes effect</p>
+<p><code>systemctl daemon-reload &amp;&amp; systemctl restart docker</code><br>
+7. Set the kubernetes source(Configure China mirror warehouse)</p>
+<pre><code>cat &lt;&lt;EOF &gt; /etc/yum.repos.d/k8s.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
+EOF 
+</code></pre>
+<ol start="8">
+<li>Finally, we're in master's installation<br>
+install kubelet,kubeadm,kubectl</li>
+</ol>
+<pre><code>apt-get  install -y kubelet-1.14.2 kubeadm-1.14.2 kubectl-1.14.2
+</code></pre>
+<ul>
+<li>kubelet runs on all nodes of the cluster and is used to start tools for objects such as PODS and containers</li>
+<li>kubeadm is used to initialize the cluster and start the command tool for the cluster</li>
+<li>kubectl is a command line used to communicate with clusters, through which applications can be deployed and managed, various resources can be viewed, various components can be created, deleted and updated</li>
+</ul>
+<p>Configuration after installation and automatic startup after boot</p>
+<pre><code>systemctl enable kubelet &amp;&amp; systemctl start kubelet
+</code></pre>
+<ol start="9">
+<li>k8s docker image download<br>
+Almost all the installation components and Docker images of Kubernetes are placed on Google's own website. Direct access may cause network problems. Here, the solution is to download the image from The Image warehouse of Alicloud, pull it to the local and change it back to the default image tag.Execute the script on the node</li>
+</ol>
+<pre><code>more image.sh 
+#!/bin/bash
+url=registry.cn-hangzhou.aliyuncs.com/google_containers
+version=v1.14.2
+images=(`kubeadm config images list --kubernetes-version=$version|awk -F '/' '{print $2}'`)
+for imagename in ${images[@]} ; do
+  docker pull $url/$imagename
+  docker tag $url/$imagename k8s.gcr.io/$imagename
+  docker rmi -f $url/$imagename
+done
+</code></pre>
+<ol start="10">
+<li>init master node with kuberadm</li>
+</ol>
+<pre><code>kubeadm init --apiserver-advertise-address 192.168.110.11 --pod-network-cidr=10.244.0.0/16
+</code></pre>
+<ul>
+<li>apiserver-advertise-address Specify the interface of the master</li>
+<li>pod-network-cidr Specify the scope of the Pod network</li>
+</ul>
+<p>It will output token information at the terminal after successful initialization which is very important to save</p>
+<pre><code>more join_cluster 
+kubeadm join 192.168.110.11:6443 --token z562f4.rs3yvzplnh3o80zn \
+    --discovery-token-ca-cert-hash sha256:1661c4532d4054a3f312a8f1e2232ef0b19033482aa52ca4e97f574b139e1cf7
+</code></pre>
+<p>Token was also covered in the previous K3S deployment blog<br>
+It shows that the principle of their connection is similar</p>
+<ol start="11">
+<li>Configure environment variables</li>
+</ol>
+<pre><code>echo &quot;export KUBECONFIG=/etc/kubernetes/admin.conf&quot; &gt;&gt; ~/.bash_profile
+source .bash_profile
+</code></pre>
+<ol start="12">
+<li>Install the pod network</li>
+</ol>
+<pre><code>kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+</code></pre>
+<p>By default, the cluster does not schedule pods on the master<br>
+This can be done<br>
+But not doing it does not affect the use of multiple nodes</p>
+<pre><code>kubectl taint nodes master node-role.kubernetes.io/master-
+node/master untainted
+</code></pre>
+<p>By now the master node is installed but cannot be used without node</p>
+<ol start="13">
+<li>The node deployment<br>
+Repeat the first 9 steps
+<ul>
+<li>Install Kubelet, Kubeadm, and Kubectl</li>
+<li>Download mirror</li>
+</ul>
+</li>
+</ol>
+<p>We'll use the text we saved on the Master node later</p>
+<pre><code>kubeadm join 192.168.110.11:6443 --token z562f4.rs3yvzplnh3o80zn \
+    --discovery-token-ca-cert-hash sha256:1661c4532d4054a3f312a8f1e2232ef0b19033482aa52ca4e97f574b139e1cf7
+</code></pre>
+<p>It only takes one line of command to add node</p>
+<h2 id="the-experimental-conclusion">The experimental conclusion</h2>
+<p>You have the previous single-node deployment exercise<br>
+Multi-node deployment is really just a step or two apart<br>
+Use Token to join the cluster<br>
+K3s and K8S are the same in this respect</p>
+<p>Since I first learned k8S, I encountered many problems in the installation process<br>
+The biggest problem has been the difficulty of downloading foreign images from China<br>
+It's a network problem and it's not really my problem</p>
+<p>K3s officially provides a one-click deployment script<br>
+And kindly provided the Chinese version<br>
+Deployment is very easy for beginners</p>
+<p>The K8S official documentation is also comprehensive<br>
+But I didn't find anything like the k3S one-click install script</p>
+<p>It adds to my study burden for beginners<br>
+I didn't know the vocabulary of pod Node until a month ago<br>
+So I don't know how to solve the problem</p>
+<p>But I settled down to understand this knowledge first<br>
+K3s was then deployed with one click and some experimentation<br>
+I have some understanding of these terms</p>
+<p>I learned a lot by going back and installing k8s</p>
+<p>Through the previous series of experiments<br>
+I think K3S is more convenient to study<br>
+Because I have several cloud servers that students use<br>
+None of them meet the hardware requirements of the K8S</p>
+<p>But k3S edge oriented computations my server can run directly<br>
+So just for the sake of my own learning I would recommend k3S more</p>
 
               </div>
               <div class="toc-container">
@@ -124,6 +297,7 @@ Because the virtual machine environment for configuration upgrade cloning and se
 </ul>
 </li>
 <li><a href="#the-experimental-steps">The experimental steps</a></li>
+<li><a href="#the-experimental-conclusion">The experimental conclusion</a></li>
 </ul>
 </li>
 </ul>
